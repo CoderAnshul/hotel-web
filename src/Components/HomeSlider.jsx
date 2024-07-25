@@ -7,17 +7,15 @@ import svg2 from "../assets/Images/calender.png";
 import svg3 from "../assets/Images/room.png";
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 
-const images = [img1, img2, img3];
-
 const HomeSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % 3);
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + 3) % 3);
   };
 
   const setSlide = (index) => {
@@ -44,15 +42,27 @@ const HomeSlider = () => {
           className="flex transition-transform duration-500"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
-          {images.map((image, index) => (
-            <div className="w-full flex-shrink-0" key={index}>
-              <img
-                src={image}
-                alt={`Slide ${index + 1}`}
-                className="w-full object-cover object-center h-full"
-              />
-            </div>
-          ))}
+          <div className="w-full flex-shrink-0">
+            <img
+              src={img1}
+              alt="Slide 1"
+              className="w-full object-cover object-center h-full"
+            />
+          </div>
+          <div className="w-full flex-shrink-0">
+            <img
+              src={img2}
+              alt="Slide 2"
+              className="w-full object-cover object-center h-full"
+            />
+          </div>
+          <div className="w-full flex-shrink-0">
+            <img
+              src={img3}
+              alt="Slide 3"
+              className="w-full object-cover object-center h-full"
+            />
+          </div>
         </div>
         <button
           className="absolute transition-all hover:scale-90 hover:text-opacity-90 scale-[0.85] hover:pr-4 z-50 p-3 pl-6 pr-4 md:pl-4 md:p-2 md:pr-3 text-opacity-60 top-1/2 mt-4 left-4 lg:left-16 transform -translate-y-1/2 bg-black bg-opacity-50 text-white text-2xl rounded-md"
@@ -67,13 +77,18 @@ const HomeSlider = () => {
           &#10095;
         </button>
         <div className="absolute bottom-4 z-50 left-1/2 transform -translate-x-1/2 flex space-x-2">
-          {images.map((_, index) => (
-            <span
-              key={index}
-              className={`h-3 w-3 rounded-full cursor-pointer ${index === currentIndex ? "bg-white" : "bg-black bg-opacity-50"}`}
-              onClick={() => setSlide(index)}
-            ></span>
-          ))}
+          <span
+            className={`h-3 w-3 rounded-full cursor-pointer ${currentIndex === 0 ? "bg-white" : "bg-black bg-opacity-50"}`}
+            onClick={() => setSlide(0)}
+          ></span>
+          <span
+            className={`h-3 w-3 rounded-full cursor-pointer ${currentIndex === 1 ? "bg-white" : "bg-black bg-opacity-50"}`}
+            onClick={() => setSlide(1)}
+          ></span>
+          <span
+            className={`h-3 w-3 rounded-full cursor-pointer ${currentIndex === 2 ? "bg-white" : "bg-black bg-opacity-50"}`}
+            onClick={() => setSlide(2)}
+          ></span>
         </div>
       </div>
 
