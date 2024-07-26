@@ -9,7 +9,7 @@ const Footer = () => {
     <div className='min-h-[50vh] w-full bg-[#000416] flex justify-center pb-16 xl:h-[25vh]'>
       <div className='w-[85%] flex flex-wrap justify-between gap-10 text-white pt-8'>
         <div className="box1 min-w-[250px] mr-8 flex-1  max-w-[300px]">
-          <h2 className='text-5xl font-primaryBold mb-4'>AVENA</h2>
+          <h2 className='text-5xl md:text-3xl font-primaryBold mb-4'>AVENA</h2>
           <p className='opacity-[0.6] text-sm'>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, eligendi! Id, maiores. Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae quae quibusdam cupiditate.
           </p>

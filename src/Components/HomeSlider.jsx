@@ -13,7 +13,7 @@ const HomeSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % 3);
   };
 
   const prevSlide = () => {
@@ -44,15 +44,27 @@ const HomeSlider = () => {
           className="flex transition-transform duration-500"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
-          {images.map((image, index) => (
-            <div className="w-full flex-shrink-0" key={index}>
-              <img
-                src={image}
-                alt={`Slide ${index + 1}`}
-                className="w-full object-cover object-center h-full"
-              />
-            </div>
-          ))}
+          <div className="w-full flex-shrink-0">
+            <img
+              src={img1}
+              alt="Slide 1"
+              className="w-full object-cover object-center h-full"
+            />
+          </div>
+          <div className="w-full flex-shrink-0">
+            <img
+              src={img2}
+              alt="Slide 2"
+              className="w-full object-cover object-center h-full"
+            />
+          </div>
+          <div className="w-full flex-shrink-0">
+            <img
+              src={img3}
+              alt="Slide 3"
+              className="w-full object-cover object-center h-full"
+            />
+          </div>
         </div>
         <button
           className="absolute transition-all hover:scale-90 hover:text-opacity-90 scale-[0.85] hover:pr-4 z-50 p-3 pl-6 pr-4 md:pl-4 md:p-2 md:pr-3 text-opacity-60 top-1/2 mt-4 left-4 lg:left-16 transform -translate-y-1/2 bg-black bg-opacity-50 text-white text-2xl rounded-md"
