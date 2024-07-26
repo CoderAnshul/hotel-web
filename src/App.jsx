@@ -5,6 +5,9 @@ import Homepage from "./Pages/Homepage";
 import HomeDes from "./Pages/HomeDes";
 import ListYourProperty from "./Pages/ListYourProperty";
 import Explore from "./Pages/Explore";
+import SignIn from "./Pages/SignIn";
+import SignUp from "./Pages/SignUp";
+import CheckOut from "./Pages/CheckOut";
 
 function App() {
   return (
@@ -17,6 +20,9 @@ function App() {
           <Route path="/home-des/:id" element={<HomeDes/>}/>
           <Route path="/listyourproperty" element={<ListYourProperty/>}/>
           <Route path="/explore" element={<Explore/>}/>
+          <Route path="/sign-in" element={<SignIn/>}/>
+          <Route path="/sign-up" element={<SignUp/>}/>
+          <Route path="/check-out" element={<CheckOut/>}/>
         </Routes>
       </BrowserRouter>
       </div>

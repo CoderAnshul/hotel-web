@@ -34,7 +34,7 @@ const HomeSlider = () => {
 
   return (
     <div className="wrapper relative flex flex-col items-center">
-      <div className="relative flex justify-center w-full !lg:w-[100%] h-[60vh] sm:h-[70vh] md:h-[80vh] overflow-hidden">
+      <div className="relative flex justify-center w-full !lg:w-[100%] h-[60vh] sm:h-[70vh] md:h-[85vh] overflow-hidden">
         <div className="heading absolute z-50 text-[42px] sm:text-[58px] md:text-[66px] lg:text-[78px] w-[65%] leading-10 sm:leading-[50px] md:leading-[60px] font-fatFace text-white -mt-16 text-center top-1/2 left-1/2 translate-x-[-50%]">
           More than Just a Stay
         </div>

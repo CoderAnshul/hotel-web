@@ -26,6 +26,7 @@ const ListYourProperty = () => {
     if (countriesFetched) return;
     try {
       const res = await axios.get("https://countriesnow.space/api/v0.1/countries/");
+      console.log(res);
       if (res.data && res.data.data) {
         const countryList = res.data.data.map((item) => item.country);
         setCountries(countryList);

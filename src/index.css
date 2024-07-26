@@ -144,6 +144,29 @@ input[type=number]::-webkit-outer-spin-button {
     position: sticky;
     top: 20px; /* Adjust based on your design */
   }
+
+
+/* .navbar {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar.transparent {
+  background-color: transparent;
+}
+
+.navbar.white {
+  background-color: white;
+}
+
+.navbar.no-shadow {
+  box-shadow: none;
+}
+
+.navbar.shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+} */
+
+
   
 
 

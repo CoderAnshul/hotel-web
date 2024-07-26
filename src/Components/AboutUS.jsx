@@ -6,7 +6,7 @@ import map from "../assets/Images/map.png";
 
 const WhychooseUs = () => {
   return (
-    <div className="min-h-[50vh] pt-8 flex justify-center items-center ">
+    <div className="min-h-[50vh] pt-8 flex justify-center items-center mb-24">
       <div className="wrapper h-1/2 w-[85%] md:flex">
         <div className="left md:w-[70%] md:pt-20 lg:pt-32">
           <h1 className="text-4xl font-primaryBold mb-4">

@@ -633,10 +633,10 @@ const Explore = () => {
         </div>
       </div>
 
-      <div className="main-content flex gap-4 md:flex-col flex-wrap items-center h-full w-[100%] pt-6 p-4 border-l-2 mt-4 border-black border-opacity-35 bg-white">
+      <div className="main-content flex gap-4 md:flex-col flex-wrap items-center  h-full w-[100%] pt-6 p-4 border-l-2 mt-4 border-black border-opacity-35 bg-white">
         {data.map((item) => (
-            <div key={item.id} className="w-full">
-            <Link to={`/home-des/${item.id}`}   className="box h-[600px] flex flex-col items-center  w-[400px] md:w-full md:flex-row md:h-[320px] border-2 border-black border-opacity-20 outline-none pl rounded-lg">
+            <div key={item.id} className=" w-full items-start lg:ml-6">
+            <Link to={`/home-des/${item.id}`}   className="box h-[700px] flex flex-col items-center  w-[400px] md:w-full max-w-[1000px] md:flex-row md:h-[280px] border-2 border-black border-opacity-20 outline-none pl rounded-lg">
          
             <div className="image md:h-[95%] md:ml-2 md:-mt-1 w-[95%] md:w-[55%] mt-2 rounded-xl overflow-hidden h-[50%]">
               <img className="h-full w-full object-cover" src={slide} alt="" />
@@ -662,12 +662,12 @@ const Explore = () => {
                     ◉ {item.baths} Baths
                   </h3>
                 </div>
-                <div className=" w-full h-14 items-center gap-4 flex gap  border-b-2 border-black border-opacity-20 outline-none p-1 rounded-lg -mt-4">
-                  <h3 className="text-xl font-primaryMedium opacity-65">
+                <div className=" w-full min-h-14 items-center gap-4 flex gap  border-b-2 border-black border-opacity-20 outline-none p-1 rounded-lg -mt-4">
+                  <h3 className="text-md font-primaryMedium opacity-65">
                     <span  className="text-sm font-primaryMedium">Greate for: </span> 
                     Food
                   </h3>
-                  <h3 className="text-xl font-primaryMedium opacity-65">
+                  <h3 className="text-md font-primaryMedium opacity-65">
                     {" "}
                     Senior Citizen
                   </h3>
@@ -693,18 +693,18 @@ const Explore = () => {
               </div>
 
               <div className="price-section w-full md:w-[250px] md:h-full mt-2  md:p-4 md:border-l-2 border-black border-opacity-20 md:text-center">
-                <div className=" md:mt-12">
+                <div className=" md:mt-6">
                   <p className="text-md font-primaryRegular">Best Price</p>
                   <div className="old-price text-xl mt-2 line-through opacity-65">
-                    ₹ {item.oldprice}
+                    ₹{item.oldprice}
                   </div>
                   <div className="new-price text-3xl mt-2">
-                    ₹ {item.newprice}
+                    ₹{item.newprice}
                   </div>
                 </div>
 
                 <div className="checkout font-primaryLight p-3 pl-5 pr-5  ">
-                  <button className="p-3 pl-10 pr-10 md:p-4 md:mt-[12px] md:text-lg w-full mt-3 text-sm bg-[#5D0E41] text-white transition-all hover:bg-[#000]  rounded-xl font-primaryMedium">
+                  <button className="p-3 pl-10 pr-10 md:p-3 md:mt-[12px] md:text-lg w-full mt-3 text-sm bg-[#5D0E41] text-white transition-all hover:bg-[#000]  rounded-xl font-primaryMedium">
                     View
                     <ArrowForwardIcon className="ml-3" />
                   </button>

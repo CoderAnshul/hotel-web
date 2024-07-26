@@ -50,12 +50,12 @@ const Testimonials = () => {
 
     let data = [...quotes];
   return (
-    <div className="testimonial-section flex justify-center text-white mt-12 pt-12 min-h-[80vh] w-full bg-[#1C2534]">
+    <div className="testimonial-section pb-12 flex justify-center text-white mt-12 pt-12 min-h-[70vh] w-full bg-[#1C2534]">
       <div className="w-[85%]">
-        <h1 className="text-[64px] font-primaryMedium tracking-tighter mb-4">
+        <h1 className="text-[64px] font-primaryMedium tracking-tighter leading-[70px] mb-20 sm:mb-20 md:w-[60%]">
           What Our Customers Say
         </h1>
-        <div className="customers min-h-[60%] flex items-center border-r-2 border-opacity-75]">
+        <div className="customers min-h-[50%] flex items-center border-r-2 border-opacity-75] ">
           <div className="wrapper flex gap-10 swiper2">
           <Swiper
             slidesPerView={'auto'}
