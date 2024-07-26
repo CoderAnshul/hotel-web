@@ -25,13 +25,10 @@ const LocationCarousal = ({ data, boxTitle }) => {
         <h1 className="text font-Barlow text-lg">{boxTitle}</h1>
 
         <div>
-          <ul className="flex mt-4 flex-nowrap overflow-x-scroll cursor-pointer">
+          <ul className="flex mt-4 overflow-x-auto whitespace-nowrap cursor-pointer">
             <li
-              key="all"
               onClick={() => handleClick(0)}
-              className={`mr-3 p-1 pl-4 pr-4 border-2 border-opacity-75 text-sm ${
-                activeIndex === 0 ? "active" : ""
-              }`}
+              className={`mr-3 py-1 px-4 border-2 border-opacity-75 text-sm rounded ${activeIndex === 0 ? "active" : "bg-white"}`}
             >
               All
             </li>
@@ -39,9 +36,7 @@ const LocationCarousal = ({ data, boxTitle }) => {
               <li
                 key={item}
                 onClick={() => handleClick(index + 1)}
-                className={`p-1 mr-3 pl-3 pr-3 border-2 border-opacity-75 text-sm ${
-                  activeIndex === index + 1 ? "active" : ""
-                }`}
+                className={`mr-3 py-1 px-4 border-2 border-opacity-75 text-sm rounded ${activeIndex === index + 1 ? "active" : "bg-white"}`}
               >
                 {item}
               </li>

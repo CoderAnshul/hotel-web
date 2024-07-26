@@ -361,11 +361,11 @@ const Explore = () => {
 
   return (
     <div className="min-h-[100vh] flex flex-col lg:flex-row lg:gap-6  w-full mt-16 pt-10 md:p-3">
-      <div className="filter-section h-20 max-w-2xl  overflow-hidden flex items-center gap-4 pl-2 lg:hidden !text-black">
+      <div className="filter-section h-20 max-w-2xl  overflow-hidden flex items-center gap-4 pl-2 lg:hidden !text-black ">
         <div className="p-1 bg-white  shadow-lg rounded-md hover:bg-black text-[#702B58]  transition-all">
           <TuneIcon onClick={toggleOptions} className="scale-[1.05] " />
           {open === true && (
-            <div className="options z-[999]  fixed flex flex-col items-center top-0 left-0 sm:top-[50%] sm:left-[50%] sm:translate-x-[-50%] sm:translate-y-[-50%] min-h-[90vh] w-screen lg:min-w-[540px] xl:hidden max-w-[700px] bg-white">
+            <div className="options z-[999]  fixed flex flex-col items-center top-0 left-0 sm:top-[50%] overscroll-y-scroll sm:left-[50%] sm:translate-x-[-50%] sm:translate-y-[-50%] min-h-[100vh] w-screen lg:min-w-[540px] xl:hidden max-w-[700px] bg-white">
               <div
                 onClick={toggleOptions}
                 className="opt-top flex items-center h-14 w-full "
@@ -399,11 +399,11 @@ const Explore = () => {
             </button>
           </div>
 
-          <div className="rooms w-[100%] mt-3">
+          <div className="rooms w-[100%] mt-5">
             <h3 className="text-2xl font-fontMedium -mb-2 text-black lg:self-start lg:ml-2 lg:text-[16px]">
               Rooms
             </h3>
-            <div className="flex justify-between text-sm items-center pl-2">
+            <div className="flex justify-between text-sm items-center mt-4">
               No. of Rooms
               <div className="flex justify-between gap-1">
                 <span
@@ -424,11 +424,11 @@ const Explore = () => {
               </div>
             </div>
           </div>
-          <div className="CheckBox w-[100%] mt-3">
+          <div className="CheckBox w-[100%] mt-8">
             <h3 className="text-2xl font-fontMedium -mb-2 text-black lg:self-start lg:ml-2 lg:text-[16px]">
               Top Filters
             </h3>
-            <FormGroup className="ml-3">
+            <FormGroup className="ml-3 mt-4">
               <FormControlLabel
                 className="-mb-3 "
                 control={<Checkbox  />}
@@ -462,7 +462,7 @@ const Explore = () => {
             </FormGroup>
           </div>
 
-          <div className="CheckBox w-[100%] mt-3">
+          <div className="CheckBox w-[100%] mt-8 overscroll-y-scroll">
             <h3 className="text-2xl font-fontMedium -mb-2 text-black lg:self-start lg:ml-2 lg:text-[16px]">
               Top Filters
             </h3>
