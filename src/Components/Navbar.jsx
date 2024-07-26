@@ -82,7 +82,7 @@ const Navbar = () => {
       <div className="left">
         <div
           onClick={hamOpen}
-          className="smallDevices -mt-5 sm:mt-0 absolute z-10 right-6 md:flex lg:hidden xl:hidden h-12 w-12 flex items-center justify-center"
+          className="smallDevices -mt-2 sm:-mt-2  absolute z-10 right-6 md:flex lg:hidden xl:hidden h-12 w-12 flex items-center justify-center"
         >
           <MenuOutlinedIcon className="scale-[1.5]" />
         </div>
@@ -164,8 +164,8 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="nav-center flex items-center lg:flex md:mr-24 sm:mr-16 lg:mr-8">
-          <ul className="hidden xl:flex gap-8 lg:flex">
+        <div className="nav-center flex items-center lg:flex md:mr-32  sm:mr-16 lg:-mr-3">
+          <ul className="hidden xl:flex gap-8 lg:flex bg-[#ffffff] p-2 rounded-3xl px-14">
             <Link to="/">
               <li
                 className={`navbar-text font-primaryMedium text-sm ${getActiveClass(
@@ -206,7 +206,7 @@ const Navbar = () => {
 
           <Link to="/sign-in">
             <div
-              className={`navbar-text ml-[12vw] hidden font-primaryMedium sm:flex text-sm ${getActiveClass(
+              className={`navbar-text ml-[12vw] sm:mr-0 mr-[60px]  bg-[#ffffff] p-2 text-xs px-3 rounded-3xl font-primaryMedium sm:flex ${getActiveClass(
                 "/sign-in"
               )}`}
             >
@@ -214,7 +214,7 @@ const Navbar = () => {
             </div>
           </Link>
           <Link to="/listyourproperty">
-            <div className="pt-2 pb-2 pl-6 pr-6 ml-8 border-2 hidden sm:flex rounded-full border-[#702b58] border-opacity-75 hover:text-white hover:bg-[#702b58] transition-all hover:text-sm text-[#702b58] bg-white text-xs font-Barlow uppercase">
+            <div className="pt-2 pb-2 px-6 ml-4 -mr-2 md:-mr-14 xl:mr-0 lg:mr-20 border-2 hidden sm:flex rounded-full border-[#702b58] border-opacity-75 hover:text-white hover:bg-[#702b58] transition-all hover:text-sm text-[#702b58] bg-white text-xs font-Barlow uppercase">
               List your Property
             </div>
           </Link>
