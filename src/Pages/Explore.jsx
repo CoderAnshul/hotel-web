@@ -636,7 +636,7 @@ const Explore = () => {
       <div className="main-content flex gap-4 md:flex-col flex-wrap items-center  h-full w-[100%] pt-6 p-4 border-l-2 mt-4 border-black border-opacity-35 bg-white">
         {data.map((item) => (
             <div key={item.id} className=" w-full items-start lg:ml-6">
-            <Link to={`/home-des/${item.id}`}   className="box h-[700px] flex flex-col items-center  w-[400px] md:w-full max-w-[1000px] md:flex-row md:h-[280px] border-2 border-black border-opacity-20 outline-none pl rounded-lg">
+            <Link to={`/home-des/${item.id}`}   className="box h-[700px] flex flex-col items-center  min-w-[330px] md:w-full max-w-[1000px] md:flex-row md:h-[280px] border-2 border-black border-opacity-20 outline-none pl rounded-lg">
          
             <div className="image md:h-[95%] md:ml-2 md:-mt-1 w-[95%] md:w-[55%] mt-2 rounded-xl overflow-hidden h-[50%]">
               <img className="h-full w-full object-cover" src={slide} alt="" />
