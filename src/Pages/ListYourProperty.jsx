@@ -35,7 +35,7 @@ const ListYourProperty = () => {
 
   return (
     <>
-      <div className="h-[120vh] md:h-[120vh] lg:h-[100vh] w-full relative overflow-hidden mb-14">
+      <div className="h-[100vh] md:h-[120vh] lg:h-[100vh] w-full relative overflow-hidden mb-14">
         <div className="darkoverlay absolute h-full w-full bg-[#00000069] z-20"></div>
         <div className="wrapper relative h-full w-full object-center flex justify-center items-center lg:block">
           <form
