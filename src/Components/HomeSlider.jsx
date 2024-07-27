@@ -90,39 +90,44 @@ const HomeSlider = () => {
       </div>
 
       {/* Search Field */}
-      <div className="searchBox h-32 w-[84%] pl-6 bg-red-50 absolute z-50 -bottom-16 rounded-2xl shadow-xl gap-5 items-center p-2 hidden lg:flex">
-        <div className="search h-36 w-[20%] pt-6">
+      <div className="searchBox h-32 w-[84%] pl-6 bg-white absolute z-50 -bottom-16 rounded-2xl shadow-xl gap-5 items-center p-2 hidden lg:flex">
+        <div className="search h-36 w-[20%] pt-6 ">
           <h5 className="mb-4 font-primaryMedium text-xs">Destination</h5>
-          <div className="input flex relative h-12 w-[90%] bg-white rounded-lg p-4 font-primaryMedium items-center overflow-hidden">
+          <div className="input flex relative h-12 w-[90%] bg-[#F8F8FA] rounded-lg p-4 font-primaryMedium items-center overflow-hidden">
             <input
               type="text"
               placeholder="Choose City"
-              className="ml-5 p-4 outline-none text-sm w-[90%]"
+              className="ml-5 p-4 outline-none text-sm w-[90%] bg-[#F8F8FA]"
             />
             <img className="h-20 absolute -ml-8" src={svg1} alt="" />
           </div>
         </div>
         <div className="search h-36 w-[20%] pt-6">
           <h5 className="mb-4 font-primaryMedium text-xs">Check-In</h5>
-          <div className="input flex items-center relative h-12 w-[90%] bg-white rounded-lg p-4 font-primaryMedium">
-            <input type="date" className="ml-5 text-sm opacity-65 pl-2 outline-none w-[90%]" />
+          <div className="input flex items-center relative h-12 w-[90%] bg-[#F8F8FA] rounded-lg p-4 font-primaryMedium">
+            <input type="date" className="ml-5 text-xs opacity-65 pl-8 outline-none w-[90%]" />
             <img className="h-20 absolute -ml-8" src={svg2} alt="" />
           </div>
         </div>
-        <div className="search h-36 w-[20%] pt-6">
+        <div className="search h-36 w-[20%] pt-6 ">
           <h5 className="mb-4 font-primaryMedium text-xs">Check-out</h5>
-          <div className="input flex items-center relative h-12 w-[90%] bg-white rounded-lg p-4 font-primaryMedium">
-            <input type="date" className="ml-5 pl-2 text-sm opacity-65 outline-none w-[90%]" />
+          <div className="input flex items-center relative h-12 w-[90%] bg-[#F8F8FA] rounded-lg p-4 font-primaryMedium">
+            <input type="date" className="ml-5 pl-8 text-xs opacity-65 outline-none w-[90%]" />
             <img className="h-20 absolute -ml-8" src={svg2} alt="" />
           </div>
         </div>
         <div className="search h-36 w-[20%] pt-6">
           <h5 className="mb-4 font-primaryMedium text-xs">Rooms</h5>
-          <div className="input flex items-center text-sm opacity-65 relative h-12 w-[90%] bg-white rounded-lg p-4 font-primaryMedium">
-            <img className="h-20 w-24 -ml-8" src={svg3} alt="" /> Rooms
+          <div className="input flex items-center text-sm relative h-12 w-[90%] bg-[#F8F8FA] rounded-lg p-4 font-primaryMedium">
+            <img className="h-20 w-28 -ml-8" src={svg3} alt="" />
+            <input
+              type="text"
+              placeholder="Choose City"
+              className=" p-4 outline-none text-sm w-[90%] bg-[#F8F8FA]"
+            />
           </div>
         </div>
-        <button className="search h-12 mt-8 w-[12%] bg-[#702B58] rounded-3xl text-white">
+        <button className="search h-12 mt-8 w-[12%] bg-[#702B58] rounded-md text-white">
           Search
         </button>
       </div>
@@ -130,7 +135,7 @@ const HomeSlider = () => {
       {/* Search for small devices */}
       <div className="search h-20 w-[94%] absolute z-50 -bottom-[90px] lg:hidden">
         <input placeholder="Search For our destination" type="text" className="w-full shadow-xl pl-20 text-xl h-16 rounded-full" />
-        <SearchOutlinedIcon className="absolute scale-125 opacity-75 z-50 left-0 mt-6 ml-8" />
+        <SearchOutlinedIcon className="absolute scale-125 z-50 left-0 mt-6 ml-8" />
       </div>
     </div>
   );

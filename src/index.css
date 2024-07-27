@@ -26,6 +26,13 @@ background: padding-box linear-gradient(rgb(30 41 59), rgb(30 41 59)),
     }
 }
 
+@layer utilities{
+  .backdrop-blur {
+    backdrop-filter: blur(13.8px);
+    -webkit-backdrop-filter: blur(13.8px);
+  }
+}
+
 
 @font-face {
     font-family: "Regular";

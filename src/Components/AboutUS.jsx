@@ -20,7 +20,7 @@ const WhychooseUs = () => {
           </p>
           <div className="flex md:mt-14 justify-center items-center flex-wrap md:justify-start gap-8">
 
-            <div className="stat-box h-40 w-40 md:h-32 md:w-32  border-black border-opacity-[0.5] rounded-xl flex justify-center items-center flex-col border-double border-[4px]">
+            <div className="stat-box h-40 w-40 md:h-32 md:w-32  border-black border-opacity-[0.16] rounded-xl flex justify-center items-center flex-col border-double border-[4px]">
               <img src={hotel} alt="" />
               <h3 className="count text-4xl md:text-3xl font-primaryMedium">
                 900
@@ -30,7 +30,7 @@ const WhychooseUs = () => {
               </p>
             </div>
 
-            <div className="stat-box h-40 w-40 md:h-32 md:w-32 border-black rounded-xl flex justify-center border-opacity-[0.5] items-center flex-col border-double border-[4px]">
+            <div className="stat-box h-40 w-40 md:h-32 md:w-32 border-black rounded-xl flex justify-center border-opacity-[0.16] items-center flex-col border-double border-[4px]">
               <img src={person} alt="" />
               <h3 className="count text-4xl md:text-3xl font-primaryMedium">
                 2300
@@ -40,7 +40,7 @@ const WhychooseUs = () => {
               </p>
             </div>
 
-            <div className="stat-box h-40 w-40 md:h-32 md:w-32 border-black rounded-xl flex justify-center border-opacity-[0.5] items-center flex-col border-double border-[4px]">
+            <div className="stat-box h-40 w-40 md:h-32 md:w-32 border-black rounded-xl flex justify-center border-opacity-[0.16] items-center flex-col border-double border-[4px]">
               <img src={map} alt="" />
               <h3 className="count text-4xl md:text-3xl font-primaryMedium">
                 300
@@ -51,7 +51,7 @@ const WhychooseUs = () => {
             </div>
           </div>
 
-          <button className="p-3 pl-10 pr-10 mt-6 bg-[#5D0E41] text-white transition-all hover:bg-[#000] font-Barlow rounded-xl">Explore More</button>
+          <button className="p-3 pl-10 pr-10 mt-6 bg-[#5D0E41] text-white transition-all hover:bg-[#000] font-Barlow rounded-md">Explore More</button>
         </div>
 
         <div className="right mt-14 flex shrink-0 justify-center md:w-[40%]">

@@ -22,7 +22,7 @@ import Tick from "../assets/Images/available.png";
 import TextField from "@mui/material/TextField";
 
 import { FreeMode, Pagination } from "swiper/modules";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const HomeDes = () => {
   const [value, setValue] = useState(4);
@@ -622,7 +622,7 @@ const HomeDes = () => {
                       </div>
                     </div>
 
-                    <button className="p-3 pl-10 pr-10  mt-14 text-sm bg-[#5D0E41] text-white transition-all hover:bg-[#000] rounded-md font-primaryMedium">Check Availability</button>
+                   <Link > <button className="p-3 pl-10 pr-10  mt-14 text-sm bg-[#5D0E41] text-white transition-all hover:bg-[#000] rounded-md font-primaryMedium">Check Availability</button></Link>
                   </form>
                 </div>
               </div>
@@ -671,7 +671,7 @@ const HomeDes = () => {
       </select>
               </div>
 
-              <button className="p-3 pl-10 pr-10 w-full mt-14 text-sm bg-[#5D0E41] text-white transition-all hover:bg-[#000] rounded-md font-primaryMedium">Check Availability</button>
+              <Link to="/check-out"> <button className="p-3 pl-10 pr-10 w-full mt-14 text-sm bg-[#5D0E41] text-white transition-all hover:bg-[#000] rounded-md font-primaryMedium">Check Availability</button></Link>
             </div>
           </div>
         </div>

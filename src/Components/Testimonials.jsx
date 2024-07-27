@@ -52,10 +52,10 @@ const Testimonials = () => {
   return (
     <div className="testimonial-section pb-12 flex justify-center text-white mt-12 pt-12 min-h-[70vh] w-full bg-[#1C2534]">
       <div className="w-[85%]">
-        <h1 className="text-[64px] font-primaryMedium tracking-tighter leading-[70px] mb-20 sm:mb-20 md:w-[60%]">
-          What Our Customers Say
+        <h1 className="text-[40px] md:text-[64px]  font-primaryMedium tracking-tighter leading-[44px] md:leading-[70px]  mb-20 sm:mb-20 md:w-[60%]">
+          What Our <br /> Customers Say
         </h1>
-        <div className="customers min-h-[50%] flex items-center border-r-2 border-opacity-75] ">
+        <div className="customers min-h-[50%] flex items-center  ">
           <div className="wrapper flex gap-10 swiper2">
           <Swiper
             slidesPerView={'auto'}
@@ -71,14 +71,14 @@ const Testimonials = () => {
 {
     data.map((item,index) => (
         <SwiperSlide key={index} >
-            <div className="box border h-72 w- p-4 bg-[#5294ff] ">
-              <div className="text h-[75%] w-full border-b-[0.7px] border-solid border-gray-300 pt-14 ">
+            <div className="box h-72 w- p-4 bg-[#263042]">
+              <div className="text h-[75%] w-full border-b-[0.7px] border-solid border-gray-300 border-opacity-35 pt-14 ">
                 <p className=" text-sm opacity-[0.8]">
                  {item.text}
                 </p>
               </div>
 
-              <div className="text h-[25%] flex items-center justify-between">
+              <div className="text h-[25%] flex items-center pt-4 justify-between">
                 <div className="flex gap-4 items-center">
                 <div className="image h-8 w-8 rounded-full overflow-hidden">
                   <img
@@ -89,7 +89,7 @@ const Testimonials = () => {
                 </div>
                   <p className="name text-xs font-primaryLight">{item.name}</p>
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center justify-center">
                 <Checkbox {...label} icon={<FavoriteBorder className="text-white opacity-[0.8]" />} checkedIcon={<Favorite />} />
                 <p className="text-xs opacity-[0.7]">Helpful</p>
                 </div>

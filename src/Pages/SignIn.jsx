@@ -25,9 +25,9 @@ const SignIn = () => {
                         <form action="" className='min-w-[290px] max-w-[380px] flex flex-col items-center mt-2'>
 
                         <div className="options flex gap-4 h-10 mt-4">
-                            <Link><img className='h-8' src={facebook} alt="" /></Link>
-                            <Link><img className='h-8' src={twitter} alt="" /></Link>
-                            <Link><img className='h-8' src={email} alt="" /></Link>
+                            <Link id='facebook'><img className='h-8' src={facebook} alt="" /></Link>
+                            <Link id='twitter'><img className='h-8' src={twitter} alt="" /></Link>
+                            <Link id='gmail'><img className='h-8' src={email} alt="" /></Link>
                         </div>
 
 

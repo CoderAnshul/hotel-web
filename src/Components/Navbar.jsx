@@ -23,7 +23,8 @@ const Navbar = () => {
 
   // Apply GSAP animations based on the current route
   useEffect(() => {
-    const navbarTween = gsap.to(".navbar", {
+    location.pathname === "/" || location.pathname === "/listyourproperty"
+     gsap.to(".navbar", {
       backgroundColor: "white",
       color: "#000000",
       boxShadow: "0px 5px 10px rgba(0,0,0,0.2)",
@@ -35,7 +36,7 @@ const Navbar = () => {
       },
     });
 
-    const textTween = gsap.to(".navbar-text", {
+     gsap.to(".navbar-text", {
       color: "#000",
       scrollTrigger: {
         trigger: ".navbar",
@@ -45,22 +46,16 @@ const Navbar = () => {
       },
     });
 
-    // Cleanup animations on component unmount or when path changes
-    return () => {
-      navbarTween.scrollTrigger.kill();
-      textTween.scrollTrigger.kill();
-      gsap.killTweensOf(navbarTween); // Kill all related animations
-      gsap.killTweensOf(textTween);
-    };
-  }, [location.pathname]); // Re-run effect when pathname changes
+    
+  }, [location.pathname]); 
 
-  // Determine navbar style based on route
+  
   const navbarStyle =
-    location.pathname === "/"
+    location.pathname === "/" || location.pathname === "/listyourproperty"
       ? "navbar bg-transparent shadow-none"
       : "navbar bg-white shadow-lg";
 
-  // Function to determine the active class based on the current path
+  
   const getActiveClass = (path) => {
     return location.pathname === path ? "!text-yellow-500" : "";
   };
@@ -82,7 +77,7 @@ const Navbar = () => {
       <div className="left">
         <div
           onClick={hamOpen}
-          className="smallDevices -mt-2 sm:-mt-2  absolute z-10 right-6 md:flex lg:hidden xl:hidden h-12 w-12 flex items-center justify-center"
+          className="smallDevices -mt-2 sm:-mt-2  absolute z--[999] right-6 md:flex lg:hidden xl:hidden h-12 w-12 flex items-center justify-center"
         >
           <MenuOutlinedIcon className="scale-[1.5]" />
         </div>
@@ -165,7 +160,7 @@ const Navbar = () => {
         </div>
 
         <div className="nav-center flex items-center lg:flex md:mr-32  sm:mr-16 lg:-mr-3">
-          <ul className="hidden xl:flex gap-8 lg:flex bg-[#ffffff] p-2 rounded-3xl px-14">
+          <ul className="hidden xl:flex gap-8 lg:flex ">
             <Link to="/">
               <li
                 className={`navbar-text font-primaryMedium text-sm ${getActiveClass(

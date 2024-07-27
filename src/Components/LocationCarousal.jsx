@@ -8,6 +8,11 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import "../assets/Css/Location.css";
+import Checkbox from '@mui/material/Checkbox';
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
+import Favorite from '@mui/icons-material/Favorite';
+
+const label = { inputProps: { 'aria-label': 'Helpful' } };
 
 const LocationCarousal = ({ data, boxTitle }) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -58,23 +63,24 @@ const LocationCarousal = ({ data, boxTitle }) => {
               filteredData.map((item) => (
                 <SwiperSlide key={item.id} className="p-1 relative cursor-pointer">
                   <Link to={`/home-des/${item.id}`}>
-                    <div className="imageDiv h-1/2 w-full bg-red-50 rounded-[18px] overflow-hidden">
+                    <div className="imageDiv relative h-[55%] w-full bg-red-50 rounded-[18px] overflow-hidden">
                       <img src={item.img} alt="" />
+                      {/* <div className="absolute z-40 top-0 right-1 bg-white bg-opacity-44 rounded-[16px] shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border-none"><Checkbox {...label} icon={<FavoriteBorder className="text-white opacity-[0.8]" />} checkedIcon={<Favorite />} /></div> */}
                     </div>
 
-                    <h4 className="font-Barlow text-xl ml-2">{item.heading}</h4>
+                    <h4 className="font-Barlow text-xl ml-2">{item.name}</h4>
 
-                    <div className="location text-xs font-primaryRegular">
+                    <div className="location text-xs font-primaryRegular ">
                       <LocationOnIcon className="opacity-65 scale-[0.65]" />
                       {item.location}
                     </div>
 
-                    <p className="text-sm opacity-75 ml-2">{item.para}</p>
+                    <p className="text-sm opacity-75 ml-2 mt-4">{item.para}</p>
 
-                    <button className="flex-nowrap absolute bottom-1 p-3 pl-8 pr-8 rounded-xl bg-[#702B58] text-white font-primaryRegular transition-all text-xs hover:bg-[#000]">
+                    <button className="flex-nowrap ml-1 absolute bottom-[6px] p-3 pl-8 pr-8 rounded-xl bg-[#702B58] text-white font-primaryRegular transition-all text-xs hover:bg-[#000]">
                       Book Now
                     </button>
-                    <button className="h-10 w-10 absolute bottom-1 right-1 rounded-full flex justify-center items-center border-2 transition-all border-[#000] border-opacity-35 hover:bg-black hover:text-white">
+                    <button className="h-10 w-10 absolute bottom-[6px] right-1 rounded-full flex justify-center items-center border-2 transition-all border-[#000] border-opacity-35 hover:bg-black hover:text-white">
                       <ArrowForwardIosIcon />
                     </button>
                   </Link>

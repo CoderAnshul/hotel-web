@@ -1,185 +1,186 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import slide from "../assets/Images/slide2.jpg";
 import WhychooseUs from "../Components/WhychooseUs.jsx";
 import AboutUS from "../Components/AboutUS";
 import Testimonials from "../Components/Testimonials";
 import Footer from "../Components/Footer";
-import axios from "axios";
+import Box from "@mui/material/Box";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { MenuItem } from "@mui/material";
+import TextField from "@mui/material/TextField";
 
 const ListYourProperty = () => {
-  const [countries, setCountries] = useState([]);
-  const [cities, setCities] = useState([]);
-  const [selectedCountry, setSelectedCountry] = useState("");
-  const [countriesFetched, setCountriesFetched] = useState(false);
-  const [citiesFetched, setCitiesFetched] = useState(false);
+  const [propertyLocation, setPropertyLocation] = useState("");
+  const [propertyType, setPropertyType] = useState("");
+  const [roomCount, setRoomCount] = useState("");
+  const [heardAboutUs, setHeardAboutUs] = useState("");
 
-  const handleCountryChange = (event) => {
-    const country = event.target.value;
-    setSelectedCountry(country);
-    setCities([]);
-    setCitiesFetched(false);
+  const handlePropertyLocationChange = (event) => {
+    setPropertyLocation(event.target.value);
   };
 
-  const fetchCountries = async () => {
-    if (countriesFetched) return;
-    try {
-      const res = await axios.get("https://countriesnow.space/api/v0.1/countries/");
-      console.log(res);
-      if (res.data && res.data.data) {
-        const countryList = res.data.data.map((item) => item.country);
-        setCountries(countryList);
-        setCountriesFetched(true);
-      }
-    } catch (error) {
-      console.error(error.message);
-    }
+  const handlePropertyTypeChange = (event) => {
+    setPropertyType(event.target.value);
   };
 
-  const fetchCities = async () => {
-    if (citiesFetched || !selectedCountry) return;
-    try {
-      const res = await axios.post("https://countriesnow.space/api/v0.1/countries/cities", { country: selectedCountry });
-      if (res.data && res.data.data) {
-        setCities(res.data.data);
-        setCitiesFetched(true);
-      }
-    } catch (error) {
-      console.error(error.message);
-    }
+  const handleRoomCountChange = (event) => {
+    setRoomCount(event.target.value);
+  };
+
+  const handleHeardAboutUsChange = (event) => {
+    setHeardAboutUs(event.target.value);
   };
 
   return (
     <>
-      <div className="h-[100vh] md:h-[100vh] w-full relative overflow-hidden mb-14">
+      <div className="h-[120vh] md:h-[120vh] lg:h-[100vh] w-full relative overflow-hidden mb-14">
         <div className="darkoverlay absolute h-full w-full bg-[#00000069] z-20"></div>
         <div className="wrapper relative h-full w-full object-center flex justify-center items-center lg:block">
           <form
-            className="min-h-[68vh] md:h-[68vh] w-[350px] absolute z-50 bg-white md:bottom-[5%] md:right-[12%] bottom-6 rounded-lg flex flex-col items-center text-black"
+            className="min-h-[70vh] py-4  w-[310px] lg:min-w-[480px] sm:min-w-[480px] lg:min-h-[500px] absolute z-50 bg-white md:bottom-[5%] md:right-[12%] bottom-6 rounded-lg flex flex-col items-center text-black"
             action=""
           >
-            <h1 className="text-2xl text-center font-primaryMedium font-bold mt-8">
-              Create your Account
+            <h1 className="text-sm text-center font-primaryRegular font-bold mt-6 mb-4">
+              Tell us more about your house
             </h1>
-            <p className="w-[85%] text-center text-xs opacity-65 mt-2 mb-10">
-              Let's start a hotel for your vacation with loved ones
-            </p>
 
             <input
-              className="w-[80%] bg-gray-100 p-2 border-none rounded-lg mb-2"
+              className="w-[88%] text-sm p-3 rounded-sm border-2 border-black border-opacity-15 mb-4"
               type="text"
               placeholder="Name"
               name="name"
               required
               style={{ color: "black" }}
             />
-            <input
-              className="w-[80%] bg-gray-100 p-2 border-none rounded-lg mb-2"
-              type="number"
-              placeholder="Phone Number"
-              name="age"
-              required
-              maxLength={13}
-              minLength={12}
-              style={{ color: "black" }}
-            />
-            <input
-              className="w-[80%] bg-gray-100 p-2 border-none rounded-lg mb-2"
-              type="text"
-              placeholder="Address"
-              name="name"
-              required
-              style={{ color: "black" }}
-            />
-            <input
-              className="w-[80%] bg-gray-100 p-2 border-none rounded-lg mb-2"
-              type="password"
-              placeholder="Password"
-              name="password"
-              required
-              maxLength={8}
-              style={{ color: "black" }}
-            />
 
-            <div className="flex ml-14 gap-2 w-full">
-              <div className="flex flex-col w-2/5 gap-2">
-                <label htmlFor="country" className="text-xs opacity-[0.7]">
-                  Country
-                </label>
-                <Select
-                  labelId="country-select-label"
-                  id="country-select"
-                  value={selectedCountry}
-                  onChange={handleCountryChange}
-                  onOpen={fetchCountries}
-                  className="w-full"
-                  sx={{
-                    color: "black",
-                    "& .MuiSelect-select": {
-                      color: "black",
-                    },
-                    "& .MuiMenuItem-root": {
-                      color: "black",
-                    },
-                    "& .MuiInputLabel-root": {
-                      color: "black",
-                    },
-                    "& .MuiOutlinedInput-notchedOutline": {
-                      borderColor: "black",
-                    },
-                    "& .MuiInputBase-input::placeholder": {
-                      color: "black",
-                    },
-                  }}
-                >
-                  {countries.map((item, index) => (
-                    <MenuItem key={index} value={item} className="!max-h-52 text-black">
-                      {item}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </div>
-              <div className="flex flex-col w-2/5 gap-2">
-                <label htmlFor="city" className="text-xs opacity-[0.7]">
-                  City
-                </label>
-                <Select
-                  labelId="city-select-label"
-                  id="city-select"
-                  value=""
-                  onChange={() => {}}
-                  onOpen={fetchCities}
-                  className="w-full"
-                  disabled={!selectedCountry}
-                  sx={{
-                    color: "black",
-                    "& .MuiSelect-select": {
-                      color: "black",
-                    },
-                    "& .MuiMenuItem-root": {
-                      color: "black",
-                    },
-                    "& .MuiInputLabel-root": {
-                      color: "black",
-                    },
-                    "& .MuiOutlinedInput-notchedOutline": {
-                      borderColor: "black",
-                    },
-                    "& .MuiInputBase-input::placeholder": {
-                      color: "black",
-                    },
-                  }}
-                >
-                  {cities.map((item, index) => (
-                    <MenuItem key={index} value={item} className="!max-h-52 text-black">
-                      {item}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </div>
+            <div className="w-[88%] mb-1 lg:flex md:gap-2">
+              <input
+                className="w-[100%] text-sm p-3 rounded-sm border-2 border-black border-opacity-15 mb-2"
+                type="email"
+                placeholder="Email ID"
+                name="email"
+                required
+                style={{ color: "black" }}
+              />
+              <input
+                className="w-[100%] text-sm p-3 rounded-sm border-2 border-black border-opacity-15 mb-2"
+                type="number"
+                placeholder="Mobile Number"
+                name="mobile"
+                required
+                style={{ color: "black" }}
+              />
             </div>
-            <button className="p-3 pl-10 pr-10 mt-4 w-[85%] bg-[#5D0E41] text-white transition-all hover:bg-[#000] font-Barlow rounded-xl">Explore More</button>
+
+            <div className="w-[88%] lg:flex md:gap-2 ">
+              <Box sx={{ minWidth: "49%" , marginBottom:"15px" }}>
+                <FormControl fullWidth sx={{ height: "48px" }}>
+                  <InputLabel
+                    id="property-location-label"
+                    sx={{ fontSize: "12px" }}
+                  >
+                    Your property location
+                  </InputLabel>
+                  <Select
+                    labelId="property-location-label"
+                    id="property-location"
+                    value={propertyLocation}
+                    label="Your property location"
+                    onChange={handlePropertyLocationChange}
+                    sx={{ fontSize: "12px" }}
+                  >
+                    <MenuItem value={10}>Ten</MenuItem>
+                    <MenuItem value={20}>Twenty</MenuItem>
+                    <MenuItem value={30}>Thirty</MenuItem>
+                  </Select>
+                </FormControl>
+              </Box>
+              <Box sx={{ minWidth: "49%" }}>
+                <FormControl fullWidth sx={{ height: "48px" }}>
+                  <InputLabel
+                    id="property-type-label"
+                    sx={{ fontSize: "12px" }}
+                  >
+                    What type of property is it?
+                  </InputLabel>
+                  <Select
+                    labelId="property-type-label"
+                    id="property-type"
+                    value={propertyType}
+                    label="What type of property is it?"
+                    onChange={handlePropertyTypeChange}
+                    sx={{ fontSize: "12px" }}
+                  >
+                    <MenuItem value={10}>Villa</MenuItem>
+                    <MenuItem value={20}>Cottage</MenuItem>
+                    <MenuItem value={30}>Bungalow</MenuItem>
+                  </Select>
+                </FormControl>
+              </Box>
+            </div>
+
+            <div className="w-[88%] lg:flex md:gap-2 ">
+              <Box sx={{ minWidth: "49%" }}>
+                <FormControl fullWidth sx={{ height: "48px" ,marginBottom:"15px" }}>
+                  <InputLabel id="room-count-label" sx={{ fontSize: "12px" }}>
+                    How Many Rooms
+                  </InputLabel>
+                  <Select
+                    labelId="room-count-label"
+                    id="room-count"
+                    value={roomCount}
+                    label="How many rooms"
+                    onChange={handleRoomCountChange}
+                    sx={{ fontSize: "12px" }}
+                  >
+                    <MenuItem value={1}>1</MenuItem>
+                    <MenuItem value={2}>2</MenuItem>
+                    <MenuItem value={3}>3</MenuItem>
+                    <MenuItem value={4}>4</MenuItem>
+                    <MenuItem value={5}>5</MenuItem>
+                    <MenuItem value={6}>6</MenuItem>
+                    <MenuItem value={7}>7</MenuItem>
+                    <MenuItem value={8}>8</MenuItem>
+                    <MenuItem value={9}>9</MenuItem>
+                    <MenuItem value={10}>10</MenuItem>
+                    <MenuItem value={11}>11</MenuItem>
+                    <MenuItem value={"12+"}>12+</MenuItem>
+                  </Select>
+                </FormControl>
+              </Box>
+              <Box sx={{ minWidth: "49%" }}>
+                <FormControl fullWidth sx={{ height: "48px" }}>
+                  <InputLabel
+                    id="heard-about-us-label"
+                    sx={{ fontSize: "12px" }}
+                  >
+                    Where did you hear about us?
+                  </InputLabel>
+                  <Select
+                    labelId="heard-about-us-label"
+                    id="heard-about-us"
+                    value={heardAboutUs}
+                    label="Where did you hear about us?"
+                    onChange={handleHeardAboutUsChange}
+                    sx={{ fontSize: "12px" }}
+                  >
+                    <MenuItem value={"Facebook"}>Facebook</MenuItem>
+                    <MenuItem value={"Instagram"}>Instagram</MenuItem>
+                    <MenuItem value={"Google Search"}>Google Search</MenuItem>
+                    <MenuItem value={"Blogs"}>Blogs</MenuItem>
+                    <MenuItem value={"Guests"}>Guests</MenuItem>
+                  </Select>
+                </FormControl>
+              </Box>
+            </div>
+
+           <textarea name="textarea" id="" className="w-[88%] h-20 border-2 border-black border-opacity-15 rounded-sm resize-none outline-none"></textarea>
+
+            <button className="p-3 pl-10 pr-10 mt-4 w-[85%] bg-[#5D0E41] text-white transition-all hover:bg-[#000] font-Barlow rounded-md">
+              Send a Request
+            </button>
           </form>
           <img className="h-full w-full object-cover" src={slide} alt="" />
         </div>
