@@ -84,7 +84,7 @@ const Navbar = () => {
 
         <div
           ref={slide}
-          className="hamburger lg:hidden transition-all h-screen w-[280px] absolute top-0 right-[-100%] bg-[#fff] shadow-xl z-50"
+          className="hamburger lg:hidden transition-all h-screen w-[280px] absolute top-0 right-[-100%] bg-[#fff] shadow-xl z-[999]"
         >
           <div className="top h-[150px] w-full bg-[#702b58] relative">
             <div
