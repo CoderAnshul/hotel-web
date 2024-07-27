@@ -35,12 +35,12 @@ const ListYourProperty = () => {
 
   return (
     <>
-      <div className="min-h-[770px] max-h-[800px] h-[700px]  lg:max-h-[600px] w-full relative overflow-hidden mb-14">
+      <div className="min-h-[820px] max-h-[850px] h-[700px]  lg:max-h-[600px] w-full relative overflow-hidden mb-14">
         <div className="darkoverlay absolute h-full w-full bg-[#00000069] z-20"></div>
         <div className="wrapper h-full w-full object-center flex justify-center items-center lg:block">
           <form
             // className="absolute bg-white py-4 min-h-[70vh] rounded-lg z-50 right-[12%] sm:min-w-[480px] flex flex-col lg:min-w-[480px] justify-center items-center bottom-4"
-            className="min-h-[400px] py-4  w-[310px] max-h-[600px] lg:min-w-[480px] sm:min-w-[480px] lg:min-h-[500px] absolute z-50 bg-white md:bottom-[5%] md:right-[12%] bottom-6 rounded-lg flex flex-col items-center text-black "
+            className="min-h-[400px] py-4  w-[310px] max-h-[800px] lg:min-w-[480px] sm:min-w-[480px] lg:min-h-[500px] absolute z-50 bg-white md:bottom-[5%] md:right-[12%] bottom-6 rounded-lg flex flex-col items-center text-black "
             action=""
           >
             <h1 className="text-sm text-center font-primaryRegular font-bold mt-6 mb-4">
@@ -75,7 +75,7 @@ const ListYourProperty = () => {
               />
             </div>
 
-            <div className="w-[88%] lg:flex md:gap-2 ">
+            <div className="w-[88%] lg:flex md:gap-2 mb-4 lg:mb-0">
               <Box sx={{ minWidth: "49%" , marginBottom:"15px" }}>
                 <FormControl fullWidth sx={{ height: "48px" }}>
                   <InputLabel
@@ -177,7 +177,7 @@ const ListYourProperty = () => {
               </Box>
             </div>
 
-           <textarea name="textarea" id="" className="w-[88%] h-20 border-2 border-black border-opacity-15 rounded-sm resize-none outline-none"></textarea>
+           <textarea name="textarea" id="" className="w-[88%] h-20 mt-4 md:mt-0 border-2 border-black border-opacity-15 rounded-sm resize-none outline-none"></textarea>
 
             <button className="p-3 pl-10 pr-10 mt-4 w-[85%] bg-[#5D0E41] text-white transition-all hover:bg-[#000] font-Barlow rounded-md">
               Send a Request
