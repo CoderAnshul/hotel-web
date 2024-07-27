@@ -35,11 +35,12 @@ const ListYourProperty = () => {
 
   return (
     <>
-      <div className="h-[95vh]  md:min-h-[100vh] lg:h-[90vh] w-full relative overflow-hidden mb-14">
+      <div className="min-h-[770px] max-h-[800px] h-[700px]  lg:max-h-[600px] w-full relative overflow-hidden mb-14">
         <div className="darkoverlay absolute h-full w-full bg-[#00000069] z-20"></div>
-        <div className="wrapper relative h-full w-full object-center flex justify-center items-center lg:block">
+        <div className="wrapper h-full w-full object-center flex justify-center items-center lg:block">
           <form
-            className="min-h-[70vh] py-4  w-[310px] lg:min-w-[480px] sm:min-w-[480px] lg:min-h-[500px] absolute z-50 bg-white md:bottom-[5%] md:right-[12%] bottom-6 rounded-lg flex flex-col items-center text-black"
+            // className="absolute bg-white py-4 min-h-[70vh] rounded-lg z-50 right-[12%] sm:min-w-[480px] flex flex-col lg:min-w-[480px] justify-center items-center bottom-4"
+            className="min-h-[400px] py-4  w-[310px] max-h-[600px] lg:min-w-[480px] sm:min-w-[480px] lg:min-h-[500px] absolute z-50 bg-white md:bottom-[5%] md:right-[12%] bottom-6 rounded-lg flex flex-col items-center text-black "
             action=""
           >
             <h1 className="text-sm text-center font-primaryRegular font-bold mt-6 mb-4">
