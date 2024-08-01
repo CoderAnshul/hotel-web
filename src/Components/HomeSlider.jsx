@@ -98,7 +98,7 @@ const HomeSlider = () => {
         <div className="flex justify-center flex-wrap lg:flex-nowrap">
           <div className="flex">
             <div className="search h-24 lg:h-36 w-[50%] pt-6 ">
-              <h5 className="mb-4 font-primaryMedium text-xs">Destination</h5>
+              <h5 className="mb-4 font-primaryMedium text-xs ml-8 sm:ml-0">Destination</h5>
               <div className="input flex relative h-12 w-[90%] bg-[#F8F8FA] rounded-lg p-4 font-primaryMedium items-center overflow-hidden">
                 <input
                   type="text"
@@ -109,7 +109,7 @@ const HomeSlider = () => {
               </div>
             </div>
             <div className="search h-24 lg:h-36 w-[50%] pt-6">
-              <h5 className="mb-4 font-primaryMedium text-xs">Check-In</h5>
+              <h5 className="mb-4 font-primaryMedium text-xs ml-8 sm:ml-0">Check-In</h5>
               <div className="input flex items-center relative h-12 w-[90%] bg-[#F8F8FA] rounded-lg p-4 font-primaryMedium">
                 <input
                   type="date"
