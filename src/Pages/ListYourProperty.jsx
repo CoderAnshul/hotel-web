@@ -39,7 +39,7 @@ const ListYourProperty = () => {
         <div className="wrapper h-full w-full object-center flex justify-center items-center lg:block">
           <form
             // className="absolute bg-white py-4 min-h-[70vh] rounded-lg z-50 right-[12%] sm:min-w-[480px] flex flex-col lg:min-w-[480px] justify-center items-center bottom-4"
-            className="min-h-[400px] py-4  w-[310px] max-h-[800px] lg:min-w-[480px] sm:min-w-[480px] lg:min-h-[500px] absolute z-50 bg-white md:bottom-[5%] md:right-[12%] bottom-6 rounded-lg flex flex-col items-center text-black "
+            className="min-h-[400px] py-4  w-[370px] max-h-[800px] lg:min-w-[480px] sm:min-w-[480px] lg:min-h-[500px] absolute z-50 bg-white md:bottom-[5%] md:right-[12%] bottom-6 rounded-lg flex flex-col items-center text-black "
             action=""
           >
             <h1 className="text-sm text-center font-primaryRegular font-bold mt-6 mb-4">
