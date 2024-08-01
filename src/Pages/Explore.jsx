@@ -734,6 +734,7 @@ const Explore = () => {
 
       <div className="main-content flex gap-4 md:flex-col flex-wrap items-center  h-full w-[100%] pt-6 p-4 border-l-2 mt-4 border-black border-opacity-35 bg-white">
         {data.map((item) => (
+<<<<<<< HEAD
           <div key={item.id} className=" w-full items-start lg:ml-6">
             <Link
               to={`/home-des/${item.id}`}
@@ -745,6 +746,63 @@ const Explore = () => {
                   src={slide}
                   alt=""
                 />
+=======
+            <div key={item.id} className=" w-full items-start lg:ml-6">
+            <Link to={`/home-des/${item.id}`}   className="box h-[700px] flex flex-col items-center  min-w-[330px] md:w-full max-w-[1000px] md:flex-row md:h-[280px] border-2 border-black border-opacity-20 outline-none pl rounded-lg">
+         
+            <div className="image md:h-[95%] md:ml-2 md:-mt-1 w-[95%] md:w-[55%] mt-2 rounded-xl overflow-hidden h-[50%]">
+              <img className="h-full w-full object-cover" src={slide} alt="" />
+            </div>
+            <div className="detail w-[95%] md:h-[80%] md:pl-3 md:flex md:justify-between">
+              <div className="md:mt-2">
+                <h2 className="text-xl font-primaryMedium">{item.name}</h2>
+                <p className="text-sm font-primaryMedium opacity-75 -ml-1">
+                  <LocationOnOutlinedIcon className="scale-[0.7]" />
+                  {item.location}
+                </p>
+                <div className="mt-2 lg:mt-8 w-full h-14 items-center gap-4 flex gap pl-1">
+                  <h3 className="text-sm font-primaryMedium">
+                    {" "}
+                    ◉ Upto {item.guests} Guests
+                  </h3>
+                  <h3 className="text-sm font-primaryMedium">
+                    {" "}
+                    ◉ {item.room} Rooms
+                  </h3>
+                  <h3 className="text-sm font-primaryMedium">
+                    {" "}
+                    ◉ {item.baths} Baths
+                  </h3>
+                </div>
+                <div className=" w-full min-h-14 items-center gap-4 flex gap  border-b-2 border-black border-opacity-20 outline-none p-1 rounded-lg -mt-4">
+                  <h3 className="text-md font-primaryMedium opacity-65">
+                    <span  className="text-sm font-primaryMedium">Greate for: </span> 
+                    Food
+                  </h3>
+                  <h3 className="text-md font-primaryMedium opacity-65">
+                    {" "}
+                    Senior Citizen
+                  </h3>
+                </div>
+
+                <div className="amenities-section w-full mt-2">
+                  <ul className="flex w-full justify-start gap-3  items-center">
+                    <li>
+                      <img className="h-10" src={sofa} alt="sitting" />
+                    </li>
+                    <li>
+                      <img className="h-10" src={wifi} alt="wifi" />
+                    </li>
+                    <li>
+                      <img className="h-10" src={ac} alt="air" />
+                    </li>
+                    <li>
+                      <img className="h-10" src={bathtub} alt="bathtub" />
+                    </li>
+                    <li className="text-xl font-primaryBold">18+</li>
+                  </ul>
+                </div>
+>>>>>>> ecafc89ae7c9a2254af224bf5b5e334b3682314e
               </div>
               <div className="detail w-[95%] md:h-[80%] md:pl-3 md:flex md:justify-between">
                 <div className="md:mt-2">

@@ -34,7 +34,11 @@ const ListYourProperty = () => {
 
   return (
     <>
+<<<<<<< HEAD
       <div className="min-h-[740px] max-h-[850px] h-[700px]  lg:max-h-[600px] w-full relative overflow-hidden mb-14">
+=======
+      <div className="min-h-[820px] max-h-[850px] h-[700px]  lg:max-h-[600px] w-full relative overflow-hidden mb-14">
+>>>>>>> ecafc89ae7c9a2254af224bf5b5e334b3682314e
         <div className="darkoverlay absolute h-full w-full bg-[#00000069] z-20"></div>
         <div className="wrapper h-full w-full object-center flex justify-center items-center lg:block">
           <form
