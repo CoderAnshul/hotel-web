@@ -52,7 +52,7 @@ const Testimonials = () => {
   return (
     <div className="testimonial-section pb-12 flex justify-center text-white mt-12 pt-12 min-h-[70vh] w-full bg-[#1C2534]">
       <div className="w-[85%]">
-        <h1 className="text-[40px] md:text-[64px]  font-primaryMedium tracking-tighter leading-[44px] md:leading-[70px]  mb-20 sm:mb-20 md:w-[60%]">
+        <h1 className="text-[40px] md:text-[64px]  font-primaryBold tracking-tight border-b-2 border-white border-opacity-20 pb-2  leading-[44px] md:leading-[70px]  mb-20 sm:mb-20 md:w-[60%]">
           What Our <br /> Customers Say
         </h1>
         <div className="customers min-h-[50%] flex items-center  ">
@@ -61,6 +61,7 @@ const Testimonials = () => {
             slidesPerView={'auto'}
             navigation={true}
             spaceBetween={30}
+            freeMode={true}
             modules={[Navigation]}
             mousewheel={{ releaseOnEdges: true }}
             className="mySwiper"
@@ -71,7 +72,7 @@ const Testimonials = () => {
 {
     data.map((item,index) => (
         <SwiperSlide key={index} >
-            <div className="box h-72 w- p-4 bg-[#263042]">
+            <div className="box h-72 w-[95%] sm:w-full p-4 bg-[#263042]">
               <div className="text h-[75%] w-full border-b-[0.7px] border-solid border-gray-300 border-opacity-35 pt-14 ">
                 <p className=" text-sm opacity-[0.8]">
                  {item.text}

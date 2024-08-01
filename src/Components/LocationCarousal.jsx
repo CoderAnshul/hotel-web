@@ -8,13 +8,10 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import "../assets/Css/Location.css";
-import Checkbox from '@mui/material/Checkbox';
-import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
-import Favorite from '@mui/icons-material/Favorite';
 
 const label = { inputProps: { 'aria-label': 'Helpful' } };
 
-const LocationCarousal = ({ data, boxTitle }) => {
+const LocationCarousal = ({ data, boxTitle, marginTop}) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef(null);
   const locations = ["Delhi", "Mumbai", "Jaipur", "Hyderabad", "Kolkata", "Explore More"];
@@ -22,11 +19,11 @@ const LocationCarousal = ({ data, boxTitle }) => {
   const handleClick = (index) => setActiveIndex(index);
 
   const filteredData =
-    activeIndex === 0 ? data : data.filter((item) => item.location === locations[activeIndex - 1]);
+    activeIndex === 0 ? data.slice(0,11) : data.filter((item) => item.location === locations[activeIndex - 1]);
 
   return (
-    <div className="carousal flex justify-center min-h-[69vh] pt-28">
-      <div className="content-wrapper h-full w-[85%] p-2 overflow-hidden">
+    <div className={`carousal flex justify-center min-h-[69vh] lg:pt-20 lg:mt-0 ${marginTop}`}>
+      <div className="content-wrapper h-full w-[95%] lg:w-[85%] p-2 overflow-hidden">
         <h1 className="text font-Barlow text-lg">{boxTitle}</h1>
 
         <div>
@@ -53,7 +50,8 @@ const LocationCarousal = ({ data, boxTitle }) => {
           <Swiper
             ref={swiperRef}
             slidesPerView={"auto"}
-            spaceBetween={15}
+            spaceBetween={5}
+            freeMode={true}
             modules={[Pagination]}
             mousewheel={{ releaseOnEdges: true }}
             className="mySwiper"
@@ -61,7 +59,7 @@ const LocationCarousal = ({ data, boxTitle }) => {
           >
             {filteredData.length > 0 ? (
               filteredData.map((item) => (
-                <SwiperSlide key={item.id} className="p-1 relative cursor-pointer">
+                <SwiperSlide key={item.id} className="p-1 ml-2 relative cursor-pointer">
                   <Link to={`/home-des/${item.id}`}>
                     <div className="imageDiv relative h-[55%] w-full bg-red-50 rounded-[18px] overflow-hidden">
                       <img src={item.img} alt="" />

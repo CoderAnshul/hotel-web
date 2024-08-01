@@ -19,14 +19,32 @@ import "swiper/css/pagination";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 import Footer from "../Components/Footer";
 import Tick from "../assets/Images/available.png";
-import TextField from "@mui/material/TextField";
 
 import { FreeMode, Pagination } from "swiper/modules";
 import { Link, useParams } from "react-router-dom";
 
+
+import 'react-date-range/dist/styles.css';
+import 'react-date-range/dist/theme/default.css'; 
+import { DateRangePicker } from "react-date-range";
+
+
+
+
+
+
+
+
+
 const HomeDes = () => {
   const [value, setValue] = useState(4);
   const [selectedRoom, setSelectedRoom] = useState("");
+  const [dateOpen, setdateOpen] = useState(false)
+
+
+  const handleOpen = () => {
+    setdateOpen(!dateOpen);
+  }
 
   const handleChange = (event) => {
     setSelectedRoom(event.target.value);
@@ -345,6 +363,27 @@ const HomeDes = () => {
 
   const filteredData = data.filter((item) => item.id == urlId.id);
 
+  const [state, setState] = useState({
+    selection: {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: 'selection'
+    }
+  });
+
+  const handleSelect = (ranges) => {
+    console.log(ranges);
+    setState({
+      ...state,
+      selection: {
+        startDate: ranges.selection.startDate,
+        endDate: ranges.selection.endDate,
+        key: 'selection'
+      }
+    });
+  };
+
+
   return (
     <>
       <div className="min-h-[70vh] flex flex-col items-center w-full mt-24 ">
@@ -358,23 +397,23 @@ const HomeDes = () => {
               className="mySwiper"
             >
               {filteredData[0].img.map((item) => (
-                <SwiperSlide>
+                <SwiperSlide key={item.id}>
                   <img src={item} alt="" />
                 </SwiperSlide>
               ))}
             </Swiper>
           </div>
-          <div className="heading w-full h-16 bg-[#F5F7FC] text-black flex items-center pl-12">
+          <div className="heading w-full h-16 bg-[#F5F7FC] text-black flex items-center pl-4 md:pl-12">
             Description
           </div>
 
           <div className="content-wrapper relative w-[100%] min-h-[200vh] flex">
-            <div className="left w-[100%] lg:w-[75%] bg-white p-3 pt-8 pl-12">
+            <div className="left w-[100%] lg:w-[75%] bg-white p-3 pt-8 pl-4  md:pl-12">
               <div className="hotel-name text-3xl">
                 {filteredData[0].name}
               </div>
               <div className="description">
-                <div className="hotel-desc text-md mt-12 w-[95%] ">
+                <div className="hotel-desc text-md mt-12 w-[100%] md:w-[95%] ">
                   <h4 className="text-xl font-primaryMedium mb-2">
                     Description
                   </h4>
@@ -628,7 +667,7 @@ const HomeDes = () => {
               </div>
             </div>
 
-            <div className="right hidden lg:flex flex-col items-center sticky top-20 min-h-[70vh] p-3 max-h-[70vh] w-[25%] bg-white mt-6 border-2 border-opacity-20 border-black rounded-md shadow-xl">
+            <div className="right hidden lg:flex flex-col items-center sticky top-20 min-h-[50vh] p-3 max-h-[60vh] w-[25%] bg-white mt-6 border-2 border-opacity-10 border-black rounded-md shadow-xl">
               <h4>Your Reservation</h4>
 
               <div className="date w-full mt-6">
@@ -654,7 +693,7 @@ const HomeDes = () => {
 
               <div className="room w-full">
 
-              <label htmlFor="room-select" className="block mb-2 text-md font-medium ">
+              <label htmlFor="room-select" className="block mb-2 text-md ">
         Choose a room:
       </label>
       <select
@@ -671,7 +710,22 @@ const HomeDes = () => {
       </select>
               </div>
 
-              <Link to="/check-out"> <button className="p-3 pl-10 pr-10 w-full mt-14 text-sm bg-[#5D0E41] text-white transition-all hover:bg-[#000] rounded-md font-primaryMedium">Check Availability</button></Link>
+              <Link onClick={handleOpen}>
+        <button className="p-3 pl-10 pr-10 w-full mt-8 text-sm bg-[#5D0E41] text-white transition-all hover:bg-[#000] rounded-md font-primaryMedium">
+          Check Availability
+        </button>
+      </Link>
+
+      {dateOpen && (
+        <DateRangePicker
+          ranges={[{
+            startDate: new Date(),
+            endDate: new Date(),
+            key: 'selection'
+          }]}
+          onChange={handleSelect}
+        />
+      )}
             </div>
           </div>
         </div>

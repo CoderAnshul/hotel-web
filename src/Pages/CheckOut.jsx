@@ -7,13 +7,27 @@ import { Link } from "react-router-dom";
 import slide from "../assets/Images/slide3.jpg";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import Footer from "../Components/Footer";
+import Box from "@mui/material/Box";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
 
 const CheckOut = () => {
-  const [image, setImage] = useState(null);
-  const [progress, setProgress] = useState(0);
-  const [isImageUploaded, setIsImageUploaded] = useState(false);
+  const [image1, setImage1] = useState(null);
+  const [progress1, setProgress1] = useState(0);
+  const [isImage1Uploaded, setIsImage1Uploaded] = useState(false);
 
-  const handleImageUpload = (event) => {
+  const [image2, setImage2] = useState(null);
+  const [progress2, setProgress2] = useState(0);
+  const [isImage2Uploaded, setIsImage2Uploaded] = useState(false);
+
+  const [typeOfId, setTypeOfID] = useState("");
+
+  const handlePropertyTypeChange = (event) => {
+    setTypeOfID(event.target.value);
+  };
+
+  const handleImageUpload1 = (event) => {
     const file = event.target.files[0];
     const reader = new FileReader();
 
@@ -21,28 +35,60 @@ const CheckOut = () => {
       reader.readAsDataURL(file);
 
       reader.onloadstart = () => {
-        setProgress(0); // Reset progress
+        setProgress1(0); // Reset progress
       };
 
       reader.onprogress = (event) => {
         if (event.lengthComputable) {
           const percentComplete = (event.loaded / event.total) * 100;
-          setProgress(percentComplete);
+          setProgress1(percentComplete);
         }
       };
 
       reader.onloadend = () => {
-        setImage(reader.result);
-        setProgress(100); // Complete progress
-        setIsImageUploaded(true); // Set image uploaded status to true
+        setImage1(reader.result);
+        setProgress1(100); // Complete progress
+        setIsImage1Uploaded(true); // Set image uploaded status to true
       };
     }
   };
 
-  const handleRemoveImage = () => {
-    setImage(null);
-    setIsImageUploaded(false);
-    setProgress(0);
+  const handleRemoveImage1 = () => {
+    setImage1(null);
+    setIsImage1Uploaded(false);
+    setProgress1(0);
+  };
+
+  const handleImageUpload2 = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    if (file) {
+      reader.readAsDataURL(file);
+
+      reader.onloadstart = () => {
+        setProgress2(0); // Reset progress
+      };
+
+      reader.onprogress = (event) => {
+        if (event.lengthComputable) {
+          const percentComplete = (event.loaded / event.total) * 100;
+          setProgress2(percentComplete);
+        }
+      };
+
+      reader.onloadend = () => {
+        setImage2(reader.result);
+        setProgress2(100); // Complete progress
+        setIsImage2Uploaded(true); // Set image uploaded status to true
+      };
+    }
+  };
+
+  const handleRemoveImage2 = () => {
+    setImage2(null);
+    setIsImage2Uploaded(false);
+    setProgress2(0);
   };
 
   return (
@@ -67,7 +113,7 @@ const CheckOut = () => {
                       Lucknow
                     </p>
                     <div className="date-of-booking flex  md:flex-row w-full mt-6 md:gap-6">
-                      <div className="min-w-[150px] bg-red-50 pt-4 sm:pt-4 md:pt-0">
+                      <div className="min-w-[150px] pt-4 sm:pt-4 md:pt-0">
                         <h4 className="text-sm font-primaryRegular tracking-tight">
                           Check-in
                         </h4>
@@ -107,7 +153,7 @@ const CheckOut = () => {
               <div className="radio mt-4">
                 <p>I'm Looking for</p>
                 <div className="flex gap-3">
-                  <FormControl>
+                  <FormControl required>
                     <RadioGroup row>
                       <FormControlLabel
                         value="mySelf"
@@ -158,11 +204,37 @@ const CheckOut = () => {
                   </span>
                 </div>
 
+                <Box sx={{ minWidth: "49%"}} className="mt-4 b">
+                <FormControl fullWidth sx={{ height: "48px" }}>
+                  <InputLabel
+                    id="id-type-label"
+                    sx={{ fontSize: "16px" }}
+                  >
+                    Select Your ID
+                  </InputLabel>
+                  <Select
+                    labelId="id-type-label"
+                    id="id-type"
+                    value={typeOfId}
+                    label="Select Your ID"
+                    onChange={handlePropertyTypeChange}
+                    sx={{ fontSize: "12px" }}
+                  >
+                    
+                    <MenuItem value={10}>Aadhaar Card</MenuItem>
+                    <MenuItem value={20}>Pan Car</MenuItem>
+                    <MenuItem value={30}>Driving Licence</MenuItem>
+                    <MenuItem value={40}>Passport</MenuItem>
+                  </Select>
+                </FormControl>
+              </Box>
+
+                <div className="sm:flex  gap-6">
                 <div className="flex h-44 mt-4 flex-col justify-center">
                   <div className="relative w-[220px] h-[150px] border-2 border-gray-300 rounded-md overflow-hidden bg-white">
-                    {image && (
+                    {image1 && (
                       <img
-                        src={image}
+                        src={image1}
                         alt="Preview"
                         className="w-full h-full object-cover"
                       />
@@ -170,33 +242,75 @@ const CheckOut = () => {
                     <div className="absolute bottom-0 left-0 w-full h-2 bg-gray-200">
                       <div
                         className="h-full bg-green-500 transition-width duration-300"
-                        style={{ width: `${progress}%` }}
+                        style={{ width: `${progress1}%` }}
                       ></div>
                     </div>
                   </div>
-                  {isImageUploaded ? (
+                  {isImage1Uploaded ? (
                     <button
                       type="button"
                       className="p-3 pl-10 pr-10 whitespace-nowrap mt-4 max-w-[220px] text-sm bg-[#5D0E41] text-white transition-all hover:bg-[#000] cursor-pointer rounded-md font-primaryMedium"
-                      onClick={handleRemoveImage}
+                      onClick={handleRemoveImage1}
                     >
-                      Remove File
+                      Remove ID
                     </button>
                   ) : (
                     <label
-                      htmlFor="upload"
-                      className="p-3 pl-10 pr-10 whitespace-nowrap mt-4 max-w-[220px] text-sm bg-[#5D0E41] text-white transition-all hover:bg-[#000] cursor-pointer rounded-md font-primaryMedium"
+                      htmlFor="upload1"
+                      className="p-3 pl-12 pr-10 whitespace-nowrap mt-4 max-w-[220px] text-sm bg-[#5D0E41] text-white transition-all hover:bg-[#000] cursor-pointer rounded-md font-primaryMedium"
                     >
-                      Upload Your Aadhaar
+                      Front of Your ID
                       <input
                         type="file"
-                        id="upload"
+                        id="upload1"
                         accept="image/*"
                         className="hidden"
-                        onChange={handleImageUpload}
+                        onChange={handleImageUpload1}
                       />
                     </label>
                   )}
+                </div>
+
+                <div className="flex h-44 mt-4 flex-col justify-center">
+                  <div className="relative w-[220px] h-[150px] border-2 border-gray-300 rounded-md overflow-hidden bg-white">
+                    {image2 && (
+                      <img
+                        src={image2}
+                        alt="Preview"
+                        className="w-full h-full object-cover"
+                      />
+                    )}
+                    <div className="absolute bottom-0 left-0 w-full h-2 bg-gray-200">
+                      <div
+                        className="h-full bg-green-500 transition-width duration-300"
+                        style={{ width: `${progress2}%` }}
+                      ></div>
+                    </div>
+                  </div>
+                  {isImage2Uploaded ? (
+                    <button
+                      type="button"
+                      className="p-3 pl-10 pr-10 whitespace-nowrap mt-4 max-w-[220px] text-sm bg-[#5D0E41] text-white transition-all hover:bg-[#000] cursor-pointer rounded-md font-primaryMedium"
+                      onClick={handleRemoveImage2}
+                    >
+                      Remove ID
+                    </button>
+                  ) : (
+                    <label
+                      htmlFor="upload2"
+                      className="p-3 pl-14 pr-10 whitespace-nowrap mt-4 max-w-[220px] text-sm bg-[#5D0E41] text-white transition-all hover:bg-[#000] cursor-pointer rounded-md font-primaryMedium"
+                    >
+                      Back of Your Id
+                      <input
+                        type="file"
+                        id="upload2"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={handleImageUpload2}
+                      />
+                    </label>
+                  )}
+                </div>
                 </div>
 
                 <div className="bottom w-full mt-12">

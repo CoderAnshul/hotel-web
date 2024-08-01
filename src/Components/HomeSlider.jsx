@@ -5,7 +5,7 @@ import img3 from "../assets/Images/slide3.jpg";
 import svg1 from "../assets/Images/location.png";
 import svg2 from "../assets/Images/calender.png";
 import svg3 from "../assets/Images/room.png";
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 
 const images = [img1, img2, img3];
 
@@ -17,7 +17,9 @@ const HomeSlider = () => {
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + images.length) % images.length
+    );
   };
 
   const setSlide = (index) => {
@@ -82,7 +84,9 @@ const HomeSlider = () => {
           {images.map((_, index) => (
             <span
               key={index}
-              className={`h-3 w-3 rounded-full cursor-pointer ${index === currentIndex ? "bg-white" : "bg-black bg-opacity-50"}`}
+              className={`h-3 w-3 rounded-full cursor-pointer ${
+                index === currentIndex ? "bg-white" : "bg-black bg-opacity-50"
+              }`}
               onClick={() => setSlide(index)}
             ></span>
           ))}
@@ -90,53 +94,65 @@ const HomeSlider = () => {
       </div>
 
       {/* Search Field */}
-      <div className="searchBox h-32 w-[84%] pl-6 bg-white absolute z-50 -bottom-16 rounded-2xl shadow-xl gap-5 items-center p-2 hidden lg:flex">
-        <div className="search h-36 w-[20%] pt-6 ">
-          <h5 className="mb-4 font-primaryMedium text-xs">Destination</h5>
-          <div className="input flex relative h-12 w-[90%] bg-[#F8F8FA] rounded-lg p-4 font-primaryMedium items-center overflow-hidden">
-            <input
-              type="text"
-              placeholder="Choose City"
-              className="ml-5 p-4 outline-none text-sm w-[90%] bg-[#F8F8FA]"
-            />
-            <img className="h-20 absolute -ml-8" src={svg1} alt="" />
+      <div className="searchBox min-h-32 w-[95%] max-w-[550px] lg:max-w-[84%] pl-6 bg-white absolute z-50 lg:-bottom-16 -bottom-44  rounded-2xl shadow-xl gap-5 items-center p-2 flex flex-wrap justify-center lg:flex-nowrap">
+        <div className="flex justify-center flex-wrap lg:flex-nowrap">
+          <div className="flex">
+            <div className="search h-24 lg:h-36 w-[50%] pt-6 ">
+              <h5 className="mb-4 font-primaryMedium text-xs">Destination</h5>
+              <div className="input flex relative h-12 w-[90%] bg-[#F8F8FA] rounded-lg p-4 font-primaryMedium items-center overflow-hidden">
+                <input
+                  type="text"
+                  placeholder="Choose City"
+                  className="ml-5 p-4 outline-none text-sm w-[90%] bg-[#F8F8FA]"
+                />
+                <img className="h-20 absolute -ml-8" src={svg1} alt="" />
+              </div>
+            </div>
+            <div className="search h-24 lg:h-36 w-[50%] pt-6">
+              <h5 className="mb-4 font-primaryMedium text-xs">Check-In</h5>
+              <div className="input flex items-center relative h-12 w-[90%] bg-[#F8F8FA] rounded-lg p-4 font-primaryMedium">
+                <input
+                  type="date"
+                  className="ml-5 text-xs opacity-65 pl-3 outline-none w-[90%]"
+                />
+                <img className="h-20 absolute -ml-8" src={svg2} alt="" />
+              </div>
+            </div>
+          </div>
+          <div className="flex">
+            <div className="search h-24 lg:h-36 w-[50%] pt-6 ">
+              <h5 className="mb-4 font-primaryMedium text-xs">Check-out</h5>
+              <div className="input flex items-center relative h-12 w-[90%] bg-[#F8F8FA] rounded-lg p-4 font-primaryMedium">
+                <input
+                  type="date"
+                  className="ml-5 pl-3 text-xs opacity-65 outline-none w-[90%]"
+                />
+                <img className="h-20 absolute -ml-8" src={svg2} alt="" />
+              </div>
+            </div>
+            <div className="search h-24 lg:h-36 w-[50%] pt-6">
+              <h5 className="mb-4 font-primaryMedium text-xs">Rooms</h5>
+              <div className="input flex items-center text-sm relative h-12 w-[90%] bg-[#F8F8FA] rounded-lg p-4 font-primaryMedium">
+                <img className="h-20 w-28 -ml-8" src={svg3} alt="" />
+                <input
+                  type="number"
+                  placeholder="Choose City"
+                  className=" outline-none text-sm w-[90%] bg-[#F8F8FA]"
+                />
+              </div>
+            </div>
           </div>
         </div>
-        <div className="search h-36 w-[20%] pt-6">
-          <h5 className="mb-4 font-primaryMedium text-xs">Check-In</h5>
-          <div className="input flex items-center relative h-12 w-[90%] bg-[#F8F8FA] rounded-lg p-4 font-primaryMedium">
-            <input type="date" className="ml-5 text-xs opacity-65 pl-8 outline-none w-[90%]" />
-            <img className="h-20 absolute -ml-8" src={svg2} alt="" />
-          </div>
-        </div>
-        <div className="search h-36 w-[20%] pt-6 ">
-          <h5 className="mb-4 font-primaryMedium text-xs">Check-out</h5>
-          <div className="input flex items-center relative h-12 w-[90%] bg-[#F8F8FA] rounded-lg p-4 font-primaryMedium">
-            <input type="date" className="ml-5 pl-8 text-xs opacity-65 outline-none w-[90%]" />
-            <img className="h-20 absolute -ml-8" src={svg2} alt="" />
-          </div>
-        </div>
-        <div className="search h-36 w-[20%] pt-6">
-          <h5 className="mb-4 font-primaryMedium text-xs">Rooms</h5>
-          <div className="input flex items-center text-sm relative h-12 w-[90%] bg-[#F8F8FA] rounded-lg p-4 font-primaryMedium">
-            <img className="h-20 w-28 -ml-8" src={svg3} alt="" />
-            <input
-              type="text"
-              placeholder="Choose City"
-              className=" p-4 outline-none text-sm w-[90%] bg-[#F8F8FA]"
-            />
-          </div>
-        </div>
-        <button className="search h-12 mt-8 w-[12%] bg-[#702B58] rounded-md text-white">
+        <button className="search h-12 mt-2  w-[32%] lg:w-[12%] bg-[#702B58] rounded-md text-white">
           Search
         </button>
       </div>
 
       {/* Search for small devices */}
-      <div className="search h-20 w-[94%] absolute z-50 -bottom-[90px] lg:hidden">
+      {/* <div className="search h-20 w-[94%] absolute z-50 -bottom-[90px] lg:hidden">
         <input placeholder="Search For our destination" type="text" className="w-full shadow-xl pl-20 text-xl h-16 rounded-full" />
         <SearchOutlinedIcon className="absolute scale-125 z-50 left-0 mt-6 ml-8" />
-      </div>
+      </div> */}
     </div>
   );
 };
