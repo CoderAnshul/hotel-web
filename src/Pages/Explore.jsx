@@ -818,9 +818,9 @@ const Explore = () => {
                         ◉ {item.baths} Baths
                       </h3>
                     </div>
-                    <div className=" w-full min-h-14 items-center gap-4 flex gap  border-b-2  border-black border-opacity-20 outline-none p-1 rounded-lg -mt-4">
-                      <h3 className="text-md font-primaryMedium opacity-65">
-                        <span className="text-sm font-primaryMedium">
+                    <div className=" w-full min-h-14 items-center gap-4 flex gap  border-b-2  border-black border-opacity-20 outline-none p-1 rounded-lg -mt-4 shrink-0">
+                      <h3 className="text-md font-primaryMedium opacity-65 flex items-center gap-1 whitespace-nowrap">
+                        <span className="text-sm font-primaryMedium ">
                           Greate for:{" "}
                         </span>
                         Food
@@ -852,6 +852,7 @@ const Explore = () => {
 
                   <div className="price-section w-full md:w-[250px] md:h-full    md:px-4 md:border-l-2 border-black border-opacity-20 md:text-center">
                     <div className=" md:mt-2">
+                      <div className="flex md:block justify-between ">
                       <Box
                         sx={{
                           "& > legend": { mt: 2 },
@@ -866,6 +867,7 @@ const Explore = () => {
                           }}
                         />
                       </Box>
+                      <div>
                       <p className="text-sm font-primaryRegular">Best Price</p>
                       <div className="old-price text-xl mt-2 line-through opacity-65">
                         ₹{item.oldprice}
@@ -873,10 +875,12 @@ const Explore = () => {
                       <div className="new-price text-3xl mt-1">
                         ₹{item.newprice}
                       </div>
+                      </div>
+                      </div>
                     </div>
 
                     <div className="checkout font-primaryLight lg:p-3 lg:pl-5 lg:pr-5  pb-2 md:pb-0">
-                      <button className="lg:py-2 py-4 lg:pl-10 lg:pr-10 md:p-3 md:mt-[12px] md:text-sm w-full mt-3 text-md lg:text-sm bg-[#5D0E41] text-white transition-all hover:bg-[#000]  rounded-xl font-primaryMedium">
+                      <button className="lg:py-2 py-4 lg:pl-10  lg:pr-10 md:p-3 md:mt-[12px] md:text-sm w-full mt-3 text-md lg:text-sm bg-[#5D0E41] text-white transition-all hover:bg-[#000]  rounded-xl font-primaryMedium">
                         View
                         <ArrowForwardIcon className="ml-3" />
                       </button>
