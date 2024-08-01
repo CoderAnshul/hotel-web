@@ -819,13 +819,13 @@ const Explore = () => {
                       </h3>
                     </div>
                     <div className=" w-full min-h-14 items-center gap-4 flex gap  border-b-2  border-black border-opacity-20 outline-none p-1 rounded-lg -mt-4 shrink-0">
-                      <h3 className="text-md font-primaryMedium opacity-65 flex items-center gap-1 whitespace-nowrap">
+                      <h3 className="text-md font-primaryMedium opacity-65 whitespace-nowrap">
                         <span className="text-sm font-primaryMedium ">
                           Greate for:{" "}
                         </span>
                         Food
                       </h3>
-                      <h3 className="text-md font-primaryMedium opacity-65">
+                      <h3 className="text-md font-primaryMedium opacity-65 whitespace-nowrap">
                         {" "}
                         Senior Citizen
                       </h3>
