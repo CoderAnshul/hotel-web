@@ -11,16 +11,15 @@ import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
+import { Breadcrumbs, Typography } from "@mui/material";
 
 const CheckOut = () => {
   const [image1, setImage1] = useState(null);
   const [progress1, setProgress1] = useState(0);
   const [isImage1Uploaded, setIsImage1Uploaded] = useState(false);
-
   const [image2, setImage2] = useState(null);
   const [progress2, setProgress2] = useState(0);
   const [isImage2Uploaded, setIsImage2Uploaded] = useState(false);
-
   const [typeOfId, setTypeOfID] = useState("");
 
   const handlePropertyTypeChange = (event) => {
@@ -91,9 +90,29 @@ const CheckOut = () => {
     setProgress2(0);
   };
 
+  function handleClick(event) {
+    event.preventDefault();
+  }
+
   return (
     <>
-      <div className="checkout h-full w-full flex justify-center items-center pt-24">
+
+<div role="presentation" onClick={handleClick} className="mt-24 ml-40">
+      <Breadcrumbs aria-label="breadcrumb">
+        <Link underline="hover" color="inherit" href="/">
+          Explore
+        </Link>
+        <Link
+          underline="hover"
+          color="inherit"
+          href="/material-ui/getting-started/installation/"
+        >
+          Property
+        </Link>
+        <Typography color="text.primary">Checkout</Typography>
+      </Breadcrumbs>
+    </div>
+      <div className="checkout h-full w-full flex justify-center items-center pt-2">
         <div className="content-wrapper w-[90%] lg:w-[85%] min-h-[100vh] bg-gray-50 relative flex flex-col lg:flex-row">
           <div className="left w-full lg:w-[75%] bg-white p-3 pt-8 lg:pl-12 mb-8">
             <div className="hotel-name text-3xl">

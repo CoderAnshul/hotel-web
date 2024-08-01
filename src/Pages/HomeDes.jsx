@@ -27,6 +27,7 @@ import { Link, useParams } from "react-router-dom";
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css'; 
 import { DateRangePicker } from "react-date-range";
+import { Breadcrumbs } from "@mui/material";
 
 
 
@@ -383,10 +384,30 @@ const HomeDes = () => {
     });
   };
 
+  function handleClick(event) {
+    event.preventDefault();
+  }
+
 
   return (
     <>
-      <div className="min-h-[70vh] flex flex-col items-center w-full mt-24 ">
+      <div role="presentation" onClick={handleClick} className="mt-24 ml-11">
+      <Breadcrumbs aria-label="breadcrumb">
+        <Link underline="hover" color="inherit" href="/">
+          Home
+        </Link>
+        <Link
+          underline="hover"
+          color="inherit"
+          href="/material-ui/getting-started/installation/"
+        >
+          Explore
+        </Link>
+        <Typography color="text.primary">Property</Typography>
+      </Breadcrumbs>
+    </div>
+
+      <div className="min-h-[70vh] flex flex-col items-center w-full mt-4 ">
         <div className="wrapper  w-[95%]  overflow-hidden">
           <div className="image !h-[40vh] lg:!h-[70vh] w-[100%]  swiper3 overflow-hidden">
             <Swiper
@@ -710,13 +731,14 @@ const HomeDes = () => {
       </select>
               </div>
 
-              <Link onClick={handleOpen}>
+              {/* <Link onClick={handleOpen}> */}
+              <Link to={"/check-out"}>
         <button className="p-3 pl-10 pr-10 w-full mt-8 text-sm bg-[#5D0E41] text-white transition-all hover:bg-[#000] rounded-md font-primaryMedium">
           Check Availability
         </button>
       </Link>
 
-      {dateOpen && (
+      {/* {dateOpen && (
         <DateRangePicker
           ranges={[{
             startDate: new Date(),
@@ -725,7 +747,7 @@ const HomeDes = () => {
           }]}
           onChange={handleSelect}
         />
-      )}
+      )} */}
             </div>
           </div>
         </div>

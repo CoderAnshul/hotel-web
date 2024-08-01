@@ -67,7 +67,7 @@ const Navbar = () => {
       <div className="nav-right">
         <Link to="/">
           <div className="logo">
-            <h1 className="text-4xl lg:text-3xl font-primaryBold text-[#6279BE]">
+            <h1 className="text-4xl lg:text-3xl font-primaryBold text-[#5D0E41]">
               AVENA
             </h1>
           </div>
@@ -110,7 +110,7 @@ const Navbar = () => {
                   Home
                 </li>
               </Link>
-              <Link to="/bookings">
+              <Link to="/">
                 <li
                   className={`text-lg font-medium font-primaryMedium pl-6 pt-2 mb-2 pb-2 hover:bg-[#702b58] hover:text-white rounded-lg ${getActiveClass(
                     "/bookings"
@@ -119,7 +119,7 @@ const Navbar = () => {
                   Bookings
                 </li>
               </Link>
-              <Link to="/contact">
+              <Link to="/">
                 <li
                   className={`text-lg font-medium font-primaryMedium pl-6 pt-2 mb-2 pb-2 hover:bg-[#702b58] hover:text-white rounded-lg ${getActiveClass(
                     "/contact"
@@ -173,13 +173,13 @@ const Navbar = () => {
             <Link to="/bookings">
               <li
                 className={`navbar-text font-primaryMedium text-sm ${getActiveClass(
-                  "/bookings"
+                  "/b"
                 )}`}
               >
                 Bookings
               </li>
             </Link>
-            <Link to="/contact">
+            <Link to="/">
               <li
                 className={`navbar-text font-primaryMedium text-sm ${getActiveClass(
                   "/contact"

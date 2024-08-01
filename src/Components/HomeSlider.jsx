@@ -94,7 +94,7 @@ const HomeSlider = () => {
       </div>
 
       {/* Search Field */}
-      <div className="searchBox min-h-32 w-[95%] max-w-[550px] lg:max-w-[84%] pl-6 bg-white absolute z-50 lg:-bottom-16 -bottom-44  rounded-2xl shadow-xl gap-5 items-center p-2 flex flex-wrap justify-center lg:flex-nowrap">
+      <div className="searchBox min-h-32 w-[95%] max-w-[550px] lg:max-w-[84%] md:pl-6 bg-white absolute z-50 lg:-bottom-16 -bottom-44  rounded-2xl shadow-xl gap-5 items-center p-2 flex flex-wrap justify-center lg:flex-nowrap">
         <div className="flex justify-center flex-wrap lg:flex-nowrap">
           <div className="flex">
             <div className="search h-24 lg:h-36 w-[50%] pt-6 ">
@@ -143,7 +143,7 @@ const HomeSlider = () => {
             </div>
           </div>
         </div>
-        <button className="search h-12 mt-2  w-[32%] lg:w-[12%] bg-[#702B58] rounded-md text-white">
+        <button className="search h-12 mt-2  w-[100%] lg:w-[12%] bg-[#702B58] rounded-md text-white">
           Search
         </button>
       </div>
