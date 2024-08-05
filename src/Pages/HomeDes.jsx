@@ -755,17 +755,22 @@ const HomeDes = () => {
       )} */}
             </div>
 
-            <div className="phone-checkOut h-36 w-[95%] lg:hidden pt-2 fixed z-50 bottom-0 bg-white shadow-[0px_0px_20px_rgba(0,0,0,0.3)] rounded-lg">
-            <div className="top p-2 h-1/2 w-full flex justify-between">
-  <LocalizationProvider dateAdapter={AdapterDayjs}>
-    <Box display="flex" justifyContent="space-between" gap="25px" width="100%">
-      <DatePicker label="Check in" name="startDate" />
-      <DatePicker label="Check out" name="endDate" />
-    </Box>
-  </LocalizationProvider>
-</div>
-              <div className="bottom h-1/2 w-full flex items-center justify-between pr-2">
-                <div>
+            <div className="phone-checkOut h-16 w-[95%] lg:hidden pt-2 fixed z-50 bottom-0 bg-white shadow-[0px_0px_20px_rgba(0,0,0,0.3)] rounded-lg">
+              {/* <div className="top p-2 h-1/2 w-full flex justify-between">
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <Box
+                    display="flex"
+                    justifyContent="space-between"
+                    gap="25px"
+                    width="100%"
+                  >
+                    <DatePicker label="Check in" name="startDate" />
+                    <DatePicker label="Check out" name="endDate" />
+                  </Box>
+                </LocalizationProvider>
+              </div> */}
+              <div className="bottom h-1/2 w-full flex items-center justify-center gap-5 pr-2 mt-3">
+                {/* <div>
                   <FormControl sx={{ m: 1, minWidth: 120 }}>
                     <InputLabel id="demo-simple-select-helper-label">
                       Rooms
@@ -786,12 +791,17 @@ const HomeDes = () => {
                       <MenuItem value={30}>4</MenuItem>
                     </Select>
                   </FormControl>
-                </div>
+                </div> */}
 
                 <div>
-                  <button className="p-[18px] pl-8 pr-8 w-full text-sm bg-[#5D0E41] text-white transition-all hover:bg-[#000] rounded-md font-primaryMedium">
-                  Check Availability
-                </button>
+                  <button className="p-[10px] px-8 w-full text-sm border-2 border-black border-opacity-35 text-black transition-all hover:bg-[#000] rounded-md font-primaryMedium">
+                    Inquiry
+                  </button>
+                </div>
+                <div>
+                  <button className="p-[11px] px-6 w-full text-sm bg-[#5D0E41] text-white transition-all hover:bg-[#000] rounded-md font-primaryMedium">
+                    Book Now
+                  </button>
                 </div>
               </div>
             </div>
