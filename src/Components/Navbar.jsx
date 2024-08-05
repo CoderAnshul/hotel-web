@@ -67,7 +67,7 @@ const Navbar = () => {
       <div className="nav-right">
         <Link to="/">
           <div className="logo">
-            <h1 className="text-4xl lg:text-3xl font-primaryBold text-[#5D0E41]">
+            <h1 className="text-3xl lg:text-3xl font-primaryBold text-[#5D0E41]">
               AVENA
             </h1>
           </div>

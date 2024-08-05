@@ -41,9 +41,9 @@ const WhychooseUs = () => {
   }, []);
 
   return (
-    <div className="min-h-[50vh] pt-8 flex justify-center items-center mb-24">
-      <div className="wrapper h-1/2 w-[90%] md:flex">
-        <div className="left md:w-[70%] md:pt-20 lg:pt-32">
+    <div className="min-h-[50vh]  flex justify-center items-center mb-8">
+      <div className="wrapper h-1/2 w-[95%] sm:w-[90%] md:w-[85%] md:flex">
+        <div className="left md:w-[70%] md:pt-20 lg:pt-32  lg:pl-16">
           <h1 ref={headingRef} className="text-4xl font-primaryBold mb-4">
             Welcome to <span className="text-[#5D0E41] text-[38px]">AVENA</span>
           </h1>
@@ -53,19 +53,25 @@ const WhychooseUs = () => {
             natus beatae ipsum fugit vel maxime consequatur quidem voluptas
             libero, ipsam sit, at recusandae?{" "}
           </p>
-          <div className="flex md:mt-14 justify-center items-center flex-wrap md:justify-start gap-8">
+          <div className="flex md:mt-14  items-center flex-wrap md:justify-start gap-2 sm:gap-6">
 
-            <div className="stat-box h-40 w-40 md:h-32 md:w-32 border-black border-opacity-[0.16] rounded-xl flex justify-center items-center flex-col border-double border-[4px]">
-              <img src={hotel} alt="" />
-              <h3 className="count text-4xl md:text-3xl font-primaryMedium">
-                {hotels}+
-              </h3>
-              <p className="opacity-[0.8] font-primaryRegular md:text-xs">
-                Total Hotels
-              </p>
-            </div>
+          <div className="h-24 w-28 sm:h-40 sm:w-40  flex flex-col items-center justify-center border-double border-[4px] border-black border-opacity-[0.16] rounded-md">
+              <img src={hotel} alt="" className="scale-[0.6] sm:scale-[0.8] -mb-5 sm:-mb-3 -mt-8 sm:-mt-2 " />
+              <h4 className="font-primaryBold sm:text-3xl sm:mt-2">{hotels}+</h4>
+              <p className="opacity-[0.8] text-xs font-primaryRegular sm:text-md">Total Customers</p>
+          </div>
+          <div className="h-24 w-28 sm:h-40 sm:w-40  flex flex-col items-center justify-center border-double border-[4px] border-black border-opacity-[0.16] rounded-md">
+              <img src={map} alt="" className="scale-[0.6] sm:scale-[0.8] -mb-5 sm:-mb-3 -mt-8 sm:-mt-2  " />
+              <h4 className="font-primaryBold sm:text-3xl sm:mt-2">{cities}+</h4>
+              <p className="opacity-[0.8] text-xs font-primaryRegular md:text-md">Total Customers</p>
+          </div>
+          <div className="h-24 w-28 sm:h-40 sm:w-40  flex flex-col items-center justify-center border-double border-[4px] border-black border-opacity-[0.16] rounded-md">
+              <img src={person} alt="" className="scale-[0.6] sm:scale-[0.8] -mb-5 sm:-mb-3 -mt-8 sm:-mt-2 " />
+              <h4 className="font-primaryBold sm:text-3xl sm:mt-2">{customers}+</h4>
+              <p className="opacity-[0.8] text-xs font-primaryRegular md:text-md">Total Customers</p>
+          </div>
 
-            <div className="stat-box h-40 w-40 md:h-32 md:w-32 border-black rounded-xl flex justify-center border-opacity-[0.16] items-center flex-col border-double border-[4px]">
+            {/* <div className="stat-box h-40 w-40 md:h-32 md:w-32 border-black rounded-xl flex justify-center border-opacity-[0.16] items-center flex-col border-double border-[4px]">
               <img src={person} alt="" />
               <h3 className="count text-4xl md:text-3xl font-primaryMedium">
                 {customers}+
@@ -83,7 +89,7 @@ const WhychooseUs = () => {
               <p className="opacity-[0.8] font-primaryRegular md:text-xs">
                 Total Cities
               </p>
-            </div>
+            </div> */}
           </div>
 
           <button className="p-3 pl-10 pr-10 mt-6 bg-[#5D0E41] text-white transition-all hover:bg-[#000] font-Barlow rounded-md">Explore More</button>

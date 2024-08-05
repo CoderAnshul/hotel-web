@@ -341,10 +341,10 @@ const Homepage = () => {
     
     <div >
       <HomeSlider />
-      <LocationCarousal data={data} marginTop={"mt-48"} boxTitle={"TRENDING THIS SEASON"} />
-      <WhychooseUs />
-      <LocationCarousal data={data} marginTop={"mt-12"} boxTitle={"BEST RATEDED LOCATION"}  />
+      <LocationCarousal data={data} marginTop={"mt-56"} boxTitle={"TRENDING THIS SEASON"} />
       <AboutUS/>
+      <LocationCarousal data={data} marginTop={"mt-2"} boxTitle={"BEST RATEDED LOCATION"}  />
+      <WhychooseUs />
       <Testimonials/>
       <Footer/>
     </div>

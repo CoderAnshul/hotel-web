@@ -10,6 +10,7 @@ html,body{
     height: 100%;
     width: 100%;
     background: #ffffff;
+    min-width: 365px;
 }
 /* className='xl:max-w-[1530px] w-full flex flex-col items-center justify-center' */
 li{

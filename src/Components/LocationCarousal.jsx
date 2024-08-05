@@ -22,7 +22,7 @@ const LocationCarousal = ({ data, boxTitle, marginTop}) => {
     activeIndex === 0 ? data.slice(0,11) : data.filter((item) => item.location === locations[activeIndex - 1]);
 
   return (
-    <div className={`carousal flex justify-center min-h-[69vh] lg:pt-20 lg:mt-0 ${marginTop}`}>
+    <div className={`carousal flex justify-center min-h-[60vh] lg:pt-10 lg:mt-10  ${marginTop}`}>
       <div className="content-wrapper h-full w-[95%] lg:w-[85%] p-2 overflow-hidden">
         <h1 className="text font-Barlow text-lg">{boxTitle}</h1>
 

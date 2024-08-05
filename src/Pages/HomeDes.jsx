@@ -23,29 +23,33 @@ import Tick from "../assets/Images/available.png";
 import { FreeMode, Pagination } from "swiper/modules";
 import { Link, useParams } from "react-router-dom";
 
-
-import 'react-date-range/dist/styles.css';
-import 'react-date-range/dist/theme/default.css'; 
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
 import { DateRangePicker } from "react-date-range";
 import { Breadcrumbs } from "@mui/material";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
-
-
-
-
-
-
-
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormHelperText from "@mui/material/FormHelperText";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
 const HomeDes = () => {
   const [value, setValue] = useState(4);
   const [selectedRoom, setSelectedRoom] = useState("");
-  const [dateOpen, setdateOpen] = useState(false)
+  const [dateOpen, setdateOpen] = useState(false);
+  const [age, setAge] = React.useState("");
 
+  const handleSelectChange = (event) => {
+    setAge(event.target.value);
+  };
 
   const handleOpen = () => {
     setdateOpen(!dateOpen);
-  }
+  };
 
   const handleChange = (event) => {
     setSelectedRoom(event.target.value);
@@ -66,13 +70,13 @@ const HomeDes = () => {
       para: "Starting from ₹2243",
       description:
         "helloooo Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam nihil neque earum tempora minus ab ipsam, magni veniam eaque nam eius atque accusantium officia deleniti veritatis vitae voluptatem explicabo. Laborum voluptas fuga doloremque ipsam voluptatem ut iste excepturi expedita repudiandae omnis! Qui, corrupti repellat? Vitae, repudiandae. Rerum eum eos magni itaque doloremque autem voluptatibus architecto explicabo ut pariatur maxime inventore laboriosam porro illo adipisci, ipsa nostrum, nobis expedita incidunt sit tempore dignissimos nulla illum vero. Dicta asperiores exercitationem necessitatibus qui, iusto modi tempora at impedit nulla, odio quaerat nisi sint ullam dolore porro facilis? Pariatur fugit atque voluptates odit illum, a voluptas quae cum vel aspernatur sunt animi, ratione sed deserunt magni illo saepe. Ducimus aliquid, earum dolorum soluta animi velit quas maxime autem nam repudiandae? Maiores neque eius, non perferendis, voluptas consequatur maxime sapiente repudiandae ad ut labore enim adipisci accusamus animi. Rerum atque ab enim, rem facere nihil. Fugiat eum ipsum voluptate!",
-        name: "Santorini ",
-    location1: "Santorini",
-    guests: "6",
-    room: "3",
-    baths: "2",
-    oldprice: "12,000",
-    newprice: "10,500",
+      name: "Santorini ",
+      location1: "Santorini",
+      guests: "6",
+      room: "3",
+      baths: "2",
+      oldprice: "12,000",
+      newprice: "10,500",
     },
     {
       id: 2,
@@ -88,13 +92,13 @@ const HomeDes = () => {
       para: "Starting from ₹2540",
       description:
         " bhaggg    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam nihil neque earum tempora minus ab ipsam, magni veniam eaque nam eius atque accusantium officia deleniti veritatis vitae voluptatem explicabo. Laborum voluptas fuga doloremque ipsam voluptatem ut iste excepturi expedita repudiandae omnis! Qui, corrupti repellat? Vitae, repudiandae. Rerum eum eos magni itaque doloremque autem voluptatibus architecto explicabo ut pariatur maxime inventore laboriosam porro illo adipisci, ipsa nostrum, nobis expedita incidunt sit tempore dignissimos nulla illum vero. Dicta asperiores exercitationem necessitatibus qui, iusto modi tempora at impedit nulla, odio quaerat nisi sint ullam dolore porro facilis? Pariatur fugit atque voluptates odit illum, a voluptas quae cum vel aspernatur sunt animi, ratione sed deserunt magni illo saepe. Ducimus aliquid, earum dolorum soluta animi velit quas maxime autem nam repudiandae? Maiores neque eius, non perferendis, voluptas consequatur maxime sapiente repudiandae ad ut labore enim adipisci accusamus animi. Rerum atque ab enim, rem facere nihil. Fugiat eum ipsum voluptate blanditiis illo doloribus odit fuga placeat corrupti! Optio porro aspernatur ab iusto saepe tempore, delectus tenetur eveniet aliquam iur",
-        name: "Escape",
-    location1: "Santorini",
-    guests: "6",
-    room: "3",
-    baths: "2",
-    oldprice: "12,000",
-    newprice: "10,500",
+      name: "Escape",
+      location1: "Santorini",
+      guests: "6",
+      room: "3",
+      baths: "2",
+      oldprice: "12,000",
+      newprice: "10,500",
     },
     {
       id: 3,
@@ -110,13 +114,13 @@ const HomeDes = () => {
       para: "Starting from ₹2540",
       description:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam nihil neque earum tempora minus ab ipsam, magni veniam eaque nam eius atque accusantium officia deleniti veritatis vitae voluptatem explicabo. Laborum voluptas fuga doloremque ipsam voluptatem ut iste excepturi expedita repudiandae omnis! Qui, corrupti repellat? Vitae, repudiandae. Rerum eum eos magni itaque doloremque autem voluptatibus architecto explicabo ut pariatur maxime inventore laboriosam porro illo adipisci, ipsa nostrum, nobis expedita incatur inventore similique molestias enim corporis, unde vel et illo officia! Praesentium ea, aliquid doloremque laudantium provident velit voluptas dolor quos commodi modi odit atque quisquam accusantium dolore tempore earum culpa inventore harum quia. Adipisci cumque dignissimos perferendis nostrum porro! Doloribus quisquam adipisci dicta quia! Animi inventore alias, ipsum, id iusto assumenda voluptatem quisquam quod voluptate accusantium officia? Id est quae adipisci quam sit hic animi voluptate dicta accusantium! Adipisci quod officiis ut fugit!",
-        name: "Landmark",
-    location1: "Santorini",
-    guests: "6",
-    room: "3",
-    baths: "2",
-    oldprice: "12,000",
-    newprice: "10,500",
+      name: "Landmark",
+      location1: "Santorini",
+      guests: "6",
+      room: "3",
+      baths: "2",
+      oldprice: "12,000",
+      newprice: "10,500",
     },
     {
       id: 4,
@@ -132,13 +136,13 @@ const HomeDes = () => {
       para: "Starting from ₹2540",
       description:
         "Lorem ipsum dolor sit, aihil. Fugiat eum ipsum voluptate blanditiis illo doloribus odit fuga placeat corrupti! Optio porro aspernatur ab iusto saepe tempore, delectus tenetur eveniet aliquam iure aut ullam totam quo voluptatibus! Dicta, beatae itaque hic animi recusandae ipsum magni odit fugiat eius voluptates qui non corrupti autem eum, temporibus eaque dolore? Quia beatae modi, magnam nisi voluptas nobis reiciendis enim fugit. Eaque ipsum voluptas fugiat blanditiis consequatur odio ex hic necessitatibus minima officiis doloremque pariatur magnam debitis, minus natus aspernatur inventore similique molestias enim corporis, unde vel et illo officia! Praesentium ea, aliquid doloremque laudantium provident velit voluptas dolor quos commodi modi odit atque quisquam accusantium dolore tempore earum culpa inventore harum quia. Adipisci cumque dignissimos perferendis nostrum porro! Doloribus quisquam adipisci dicta quia! Animi inventore alias, ipsum, id iusto assumenda voluptatem quisquam quod voluptate accusantium officia? Id est quae adipisci quam sit hic animi voluptate dicta accusantium! Adipisci quod officiis ut fugit!",
-        name: "Radission",
-    location1: "Santorini",
-    guests: "6",
-    room: "3",
-    baths: "2",
-    oldprice: "12,000",
-    newprice: "10,500",
+      name: "Radission",
+      location1: "Santorini",
+      guests: "6",
+      room: "3",
+      baths: "2",
+      oldprice: "12,000",
+      newprice: "10,500",
     },
     {
       id: 5,
@@ -154,13 +158,13 @@ const HomeDes = () => {
       para: "Starting from ₹6754",
       description:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam nihil neque earum tempora minus ab ipsam, magni veniam eaque nam eius atque accusantium officia deleniti veritatis vitae voluptatem explicabo. Laborum voluptas fuga doloremque ipsam voluptatem ut iste excepturi expedita repudiandae omnis! Qui, corrupti repellat? Vitae, repudiandae. Rerum eum eos magni itaque doloremque autem voluptatibus architecto explicabo ut pariatur maxime inventore laboriosam porro illo adipisci, ipsa nostrum, nobis expedita incidunt sit tempore dignissimos nuore earum culpa inventore harum quia. Adipisci cumque dignissimos perferendis nostrum porro! Doloribus quisquam adipisci dicta quia! Animi inventore alias, ipsum, id iusto assumenda voluptatem quisquam quod voluptate accusantium officia? Id est quae adipisci quam sit hic animi voluptate dicta accusantium! Adipisci quod officiis ut fugit!",
-        name: "OKbook",
-    location1: "Santorini",
-    guests: "6",
-    room: "3",
-    baths: "2",
-    oldprice: "12,000",
-    newprice: "10,500",
+      name: "OKbook",
+      location1: "Santorini",
+      guests: "6",
+      room: "3",
+      baths: "2",
+      oldprice: "12,000",
+      newprice: "10,500",
     },
     {
       id: 6,
@@ -176,13 +180,13 @@ const HomeDes = () => {
       para: "Starting from ₹1560",
       description:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam nihil neque earum tempora minus ab ipsam, magni veniam eaque nam eius atque accusantium officia deleniti veritatis vitae voluptatem explicabo. Laborum voluptas fuga doloremque ipsam voluptatem ut iste excepturi expedita repudiandae omnis! Qui, corrupti repellat? Vitae, repudiandae. Rerum eum eos magni itaque doloremque autem voluptatibus architecto explicabo ut pariatur maxime inventore laboriosam porro illo adipisci, ipsa nostrum, nobis expeditatempore earum culpa inventore harum quia. Adipisci cumque dignissimos perferendis nostrum porro! Doloribus quisquam adipisci dicta quia! Animi inventore alias, ipsum, id iusto assumenda voluptatem quisquam quod voluptate accusantium officia? Id est quae adipisci quam sit hic animi voluptate dicta accusantium! Adipisci quod officiis ut fugit!",
-        name: "Live24",
-    location1: "Santorini",
-    guests: "6",
-    room: "3",
-    baths: "2",
-    oldprice: "12,000",
-    newprice: "10,500",
+      name: "Live24",
+      location1: "Santorini",
+      guests: "6",
+      room: "3",
+      baths: "2",
+      oldprice: "12,000",
+      newprice: "10,500",
     },
     {
       id: 7,
@@ -198,13 +202,13 @@ const HomeDes = () => {
       para: "Starting from ₹15500",
       description:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam nihil neque earum tempora minus ab ipsam, magni veniam eaque nam eius atque accusantium officia deleniti veritatis vitae voluptatem explicabo. Laborum voluptas fuga doloremque ipsam voluptatem ut iste excepturi expedita repudiandae omnis! Qui, corrupti repellat? Vitae, repudiandae. Rerum eendis enim fugit. Eaque ipsum voluptas fugiat blanditiis consequatur odio ex hic necessitatibus minima officiis doloremque pariatur magnam debitis, minus natus aspernatur inventore similique molestias enim corporis, unde vel et illo officia! Praesentium ea, aliquid doloremque laudantium provident velit voluptas dolor quos commodi modi odit atque quisquam accusantium dolore tempore earum culpa inventore harum quia. Adipisci cumque dignissimos perferendis nostrum porro! Doloribus quisquam adipisci dicta quia! Animi inventore alias, ipsum, id iusto assumenda voluptatem quisquam quod voluptate accusantium officia? Id est quae adipisci quam sit hic animi voluptate dicta accusantium! Adipisci quod officiis ut fugit!",
-        name: "LandMark",
-    location1: "Santorini",
-    guests: "6",
-    room: "3",
-    baths: "2",
-    oldprice: "12,000",
-    newprice: "10,500",
+      name: "LandMark",
+      location1: "Santorini",
+      guests: "6",
+      room: "3",
+      baths: "2",
+      oldprice: "12,000",
+      newprice: "10,500",
     },
     {
       id: 8,
@@ -220,13 +224,13 @@ const HomeDes = () => {
       para: "Starting from ₹15500",
       description:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam nihil neque earum tempora minus ab ipsam, magni veniam eaque nam eius atque accusantium officia deleniti veritatis vitae voluptatem explicabo. Laborum voluptas fuga doloremque ipsam voluptatem ut iste excepturi expedita repudiandae omnis! Qui, corrupti repellat? Vitae, repue tempore earum culpa inventore harum quia. Adipisci cumque dignissimos perferendis nostrum porro! Doloribus quisquam adipisci dicta quia! Animi inventore alias, ipsum, id iusto assumenda voluptatem quisquam quod voluptate accusantium officia? Id est quae adipisci quam sit hic animi voluptate dicta accusantium! Adipisci quod officiis ut fugit!",
-        name: "Cotage",
-    location1: "Santorini",
-    guests: "6",
-    room: "3",
-    baths: "2",
-    oldprice: "12,000",
-    newprice: "10,500",
+      name: "Cotage",
+      location1: "Santorini",
+      guests: "6",
+      room: "3",
+      baths: "2",
+      oldprice: "12,000",
+      newprice: "10,500",
     },
     {
       id: 9,
@@ -242,13 +246,13 @@ const HomeDes = () => {
       para: "Starting from ₹15500",
       description:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam nihil neque earum tempora minus ab ipsam, magni veniam eaque nam eius atque accusantium officia deleniti veritatis vitae voluptatem explicabo. Laborum voluptas fuga doloremque ipsam voluptatem ut iste excepturi expedita repudiandae omnis! Qui, corrupti repellat? Vitae, repudiauptatem quisquam quod voluptate accusantium officia? Id est quae adipisci quam sit hic animi voluptate dicta accusantium! Adipisci quod officiis ut fugit!",
-        name: "Santorini Escape",
-    location1: "Santorini",
-    guests: "6",
-    room: "3",
-    baths: "2",
-    oldprice: "12,000",
-    newprice: "10,500",
+      name: "Santorini Escape",
+      location1: "Santorini",
+      guests: "6",
+      room: "3",
+      baths: "2",
+      oldprice: "12,000",
+      newprice: "10,500",
     },
     {
       id: 10,
@@ -264,13 +268,13 @@ const HomeDes = () => {
       para: "Starting from ₹1500",
       description:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam nihil neque earum tempora minus ab ipsam, magni veniam eaque nam eius atque accusantium officia deleniti veritatis vitae voluptatem explicabo. Laborum voluptas fuga doloremque ipsam voluptatem ut iste excepturi expedita repudiandae omnis! Qui, corrupti repellat? Vitae, repudida voluptatem quisquam quod voluptate accusantium officia? Id est quae adipisci quam sit hic animi voluptate dicta accusantium! Adipisci quod officiis ut fugit!",
-        name: "Santorini Escape",
-    location1: "Santorini",
-    guests: "6",
-    room: "3",
-    baths: "2",
-    oldprice: "12,000",
-    newprice: "10,500",
+      name: "Santorini Escape",
+      location1: "Santorini",
+      guests: "6",
+      room: "3",
+      baths: "2",
+      oldprice: "12,000",
+      newprice: "10,500",
     },
     {
       id: 11,
@@ -286,13 +290,13 @@ const HomeDes = () => {
       para: "Starting from ₹1220",
       description:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam nihil neque earum tempora minus ab ipsam, magni veniam eaque nam eius atque accusantium officia deleniti veritatis vitae voluptatem explicabo. Laborum voluptas fuga doloremque ipsam voluptatem ut iste excepturi expedita repudiandae omnis! Qui, corrupti repellat? Vitae, repudiandae. Rerum eum eos magni itaque doloremque autem voluptatibus architecto explicabo ut pariatur maxime inventore laboriosam porro illo adipisci, ipsa nostrum, nobis expedita incidunt sit tempore dignissimos nulla illum vero. Dicta asperiores exercitationem necessitatibus qui, iusto modi tempora at impedit nulla, odio quaerat nisi sint ullam dolore porro facilis? Pariatur fugit atque voluptates rum culpa inventore harum quia. Adipisci cumque dignissimos perferendis nostrum porro! Doloribus quisquam adipisci dicta quia! Animi inventore alias, ipsum, id iusto assumenda voluptatem quisquam quod voluptate accusantium officia? Id est quae adipisci quam sit hic animi voluptate dicta accusantium! Adipisci quod officiis ut fugit!",
-        name: "Santorini Escape",
-    location1: "Santorini",
-    guests: "6",
-    room: "3",
-    baths: "2",
-    oldprice: "12,000",
-    newprice: "10,500",
+      name: "Santorini Escape",
+      location1: "Santorini",
+      guests: "6",
+      room: "3",
+      baths: "2",
+      oldprice: "12,000",
+      newprice: "10,500",
     },
     {
       id: 12,
@@ -308,13 +312,13 @@ const HomeDes = () => {
       para: "Starting from ₹1220",
       description:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam nihil neque earum tempora minus ab ipsam, magni veniam eaque nam eius atque accusantium officia deleniti veritatis vitae voluptatem explicabo. Laborum voluptas fuga doloremque ipsam voluptatem ut iste excepturi expedita repudiandae omnis! Qui, corrupti repellat? Vitae, repudiandae. Rerum eum eos magni itaque doloremque autem voluptatibus architecto explicabo ut pariatur maxime inventore laboriosam porro illo adipisci, ipsa nostrum, nobis expedita incidunt sit tempore dignissimos nullquam quod voluptate accusantium officia? Id est quae adipisci quam sit hic animi voluptate dicta accusantium! Adipisci quod officiis ut fugit!",
-        name: "Santorini Escape",
-    location1: "Santorini",
-    guests: "6",
-    room: "3",
-    baths: "2",
-    oldprice: "12,000",
-    newprice: "10,500",
+      name: "Santorini Escape",
+      location1: "Santorini",
+      guests: "6",
+      room: "3",
+      baths: "2",
+      oldprice: "12,000",
+      newprice: "10,500",
     },
     {
       id: 13,
@@ -330,13 +334,13 @@ const HomeDes = () => {
       para: "Starting from ₹1020",
       description:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam nihil neque earum tempora minus ab ipsam, magni veniam eaque nam eius atque accusantium officia deleniti veritatis vitae voluptatem explicabo. Laborum voluptas fuga doloremque ipsam voluptatem ut iste excepturi expedita repudiandae omnis! Qui, corrupti repellat? Vitae, repudiandae. Rerum eum eos magni itaque doloremque autem voluptatibus architecto explicabo ut pariatur maxime inventore laboriosam porro illo adipisci, ipsa nostrum, nobis expedita incidunt sit temporea voluptatem quisquam quod voluptate accusantium officia? Id est quae adipisci quam sit hic animi voluptate dicta accusantium! Adipisci quod officiis ut fugit!",
-        name: "Santorini Escape",
-    location1: "Santorini",
-    guests: "6",
-    room: "3",
-    baths: "2",
-    oldprice: "12,000",
-    newprice: "10,500",
+      name: "Santorini Escape",
+      location1: "Santorini",
+      guests: "6",
+      room: "3",
+      baths: "2",
+      oldprice: "12,000",
+      newprice: "10,500",
     },
     {
       id: 14,
@@ -352,13 +356,13 @@ const HomeDes = () => {
       para: "Starting from ₹2430",
       description:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam nihil neque earum tempora minus ab ipsam, magni veniam eaque nam eius atque accusantium officia deleniti veritatis vitae voluptatem explicabo. Laborum voluptas fuga doloremque ipsam voluptatem ut iste excepturi expedita repudiandae omnis! Qui, corrupti repellat? Vitae, repudiandae. Rerum eum eos magni itaque doloremque autem voluptatibus architecto explicabo ut pariatur maxime inventore laboriosam porro illo adipisci, ipsa nostrum, nobis expedita incidunt sit tempore a voluptatem quisquam quod voluptate accusantium officia? Id est quae adipisci quam sit hic animi voluptate dicta accusantium! Adipisci quod officiis ut fugit!",
-        name: "Santorini Escape",
-    location1: "Santorini",
-    guests: "6",
-    room: "3",
-    baths: "2",
-    oldprice: "12,000",
-    newprice: "10,500",
+      name: "Santorini Escape",
+      location1: "Santorini",
+      guests: "6",
+      room: "3",
+      baths: "2",
+      oldprice: "12,000",
+      newprice: "10,500",
     },
   ];
 
@@ -368,8 +372,8 @@ const HomeDes = () => {
     selection: {
       startDate: new Date(),
       endDate: new Date(),
-      key: 'selection'
-    }
+      key: "selection",
+    },
   });
 
   const handleSelect = (ranges) => {
@@ -379,8 +383,8 @@ const HomeDes = () => {
       selection: {
         startDate: ranges.selection.startDate,
         endDate: ranges.selection.endDate,
-        key: 'selection'
-      }
+        key: "selection",
+      },
     });
   };
 
@@ -388,24 +392,23 @@ const HomeDes = () => {
     event.preventDefault();
   }
 
-
   return (
     <>
       <div role="presentation" onClick={handleClick} className="mt-24 ml-11">
-      <Breadcrumbs aria-label="breadcrumb">
-        <Link underline="hover" color="inherit" href="/">
-          Home
-        </Link>
-        <Link
-          underline="hover"
-          color="inherit"
-          href="/material-ui/getting-started/installation/"
-        >
-          Explore
-        </Link>
-        <Typography color="text.primary">Property</Typography>
-      </Breadcrumbs>
-    </div>
+        <Breadcrumbs aria-label="breadcrumb">
+          <Link underline="hover" color="inherit" href="/">
+            Home
+          </Link>
+          <Link
+            underline="hover"
+            color="inherit"
+            href="/material-ui/getting-started/installation/"
+          >
+            Explore
+          </Link>
+          <Typography color="text.primary">Property</Typography>
+        </Breadcrumbs>
+      </div>
 
       <div className="min-h-[70vh] flex flex-col items-center w-full mt-4 ">
         <div className="wrapper  w-[95%]  overflow-hidden">
@@ -430,9 +433,7 @@ const HomeDes = () => {
 
           <div className="content-wrapper relative w-[100%] min-h-[200vh] flex">
             <div className="left w-[100%] lg:w-[75%] bg-white p-3 pt-8 pl-4  md:pl-12">
-              <div className="hotel-name text-3xl">
-                {filteredData[0].name}
-              </div>
+              <div className="hotel-name text-3xl">{filteredData[0].name}</div>
               <div className="description">
                 <div className="hotel-desc text-md mt-12 w-[100%] md:w-[95%] ">
                   <h4 className="text-xl font-primaryMedium mb-2">
@@ -682,7 +683,12 @@ const HomeDes = () => {
                       </div>
                     </div>
 
-                   <Link > <button className="p-3 pl-10 pr-10  mt-14 text-sm bg-[#5D0E41] text-white transition-all hover:bg-[#000] rounded-md font-primaryMedium">Check Availability</button></Link>
+                    <Link>
+                      {" "}
+                      <button className="p-3 pl-10 pr-10  mt-14 text-sm bg-[#5D0E41] text-white transition-all hover:bg-[#000] rounded-md font-primaryMedium">
+                        Check Availability
+                      </button>
+                    </Link>
                   </form>
                 </div>
               </div>
@@ -713,32 +719,31 @@ const HomeDes = () => {
               </div>
 
               <div className="room w-full">
-
-              <label htmlFor="room-select" className="block mb-2 text-md ">
-        Choose a room:
-      </label>
-      <select
-        id="room-select"
-        value={selectedRoom}
-        onChange={handleChange}
-        className="block w-full p-2 text-md rounded-lg border-2 border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-      >
-        <option value="">Select...</option>
-        <option value="1">1 room</option>
-        <option value="2">2 rooms</option>
-        <option value="3">3 rooms</option>
-        <option value="4">4 rooms</option>
-      </select>
+                <label htmlFor="room-select" className="block mb-2 text-md ">
+                  Choose a room:
+                </label>
+                <select
+                  id="room-select"
+                  value={selectedRoom}
+                  onChange={handleChange}
+                  className="block w-full p-2 text-md rounded-lg border-2 border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                >
+                  <option value="">Select...</option>
+                  <option value="1">1 room</option>
+                  <option value="2">2 rooms</option>
+                  <option value="3">3 rooms</option>
+                  <option value="4">4 rooms</option>
+                </select>
               </div>
 
               {/* <Link onClick={handleOpen}> */}
               <Link to={"/check-out"}>
-        <button className="p-3 pl-10 pr-10 w-full mt-8 text-sm bg-[#5D0E41] text-white transition-all hover:bg-[#000] rounded-md font-primaryMedium">
-          Check Availability
-        </button>
-      </Link>
+                <button className="p-3 pl-10 pr-10 w-full mt-8 text-sm bg-[#5D0E41] text-white transition-all hover:bg-[#000] rounded-md font-primaryMedium">
+                  Check Availability
+                </button>
+              </Link>
 
-      {/* {dateOpen && (
+              {/* {dateOpen && (
         <DateRangePicker
           ranges={[{
             startDate: new Date(),
@@ -748,6 +753,47 @@ const HomeDes = () => {
           onChange={handleSelect}
         />
       )} */}
+            </div>
+
+            <div className="phone-checkOut h-36 w-[95%] lg:hidden pt-2 fixed z-50 bottom-0 bg-white shadow-[0px_0px_20px_rgba(0,0,0,0.3)] rounded-lg">
+            <div className="top p-2 h-1/2 w-full flex justify-between">
+  <LocalizationProvider dateAdapter={AdapterDayjs}>
+    <Box display="flex" justifyContent="space-between" gap="25px" width="100%">
+      <DatePicker label="Check in" name="startDate" />
+      <DatePicker label="Check out" name="endDate" />
+    </Box>
+  </LocalizationProvider>
+</div>
+              <div className="bottom h-1/2 w-full flex items-center justify-between pr-2">
+                <div>
+                  <FormControl sx={{ m: 1, minWidth: 120 }}>
+                    <InputLabel id="demo-simple-select-helper-label">
+                      Rooms
+                    </InputLabel>
+                    <Select
+                      labelId="demo-simple-select-helper-label"
+                      id="demo-simple-select-helper"
+                      value={age}
+                      label="Age"
+                      onChange={handleChange}
+                    >
+                      <MenuItem value="">
+                        <em>None</em>
+                      </MenuItem>
+                      <MenuItem value={10}>1</MenuItem>
+                      <MenuItem value={20}>2</MenuItem>
+                      <MenuItem value={30}>3</MenuItem>
+                      <MenuItem value={30}>4</MenuItem>
+                    </Select>
+                  </FormControl>
+                </div>
+
+                <div>
+                  <button className="p-[18px] pl-8 pr-8 w-full text-sm bg-[#5D0E41] text-white transition-all hover:bg-[#000] rounded-md font-primaryMedium">
+                  Check Availability
+                </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>

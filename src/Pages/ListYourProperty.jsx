@@ -34,14 +34,24 @@ const ListYourProperty = () => {
 
   return (
     <>
-      <div className="min-h-[820px] max-h-[850px] h-[700px]  lg:max-h-[600px] w-full relative overflow-hidden mb-14">
+      <div className="min-h-[820px]  md:h-[700px] pb-14 md:pb-0 lg:min-h-[720px]  lg:max-h-[600px] w-full relative overflow-hidden">
         <div className="darkoverlay absolute h-full w-full bg-[#00000069] z-20"></div>
-        <div className="wrapper h-full w-full object-center flex justify-center items-center lg:block">
+        <div className="wrapper h-full w-full object-center md:flex-row flex justify-center sm:justify-evenly items-center flex-wrap lg:pt-12">
+
+          <div className="text font-fatFace relative z-50 max-w-[600px] mt-[200px] mb-[100px]">
+              <h1 className="text-white text-[30px]  leading-[45px] md:leading-[55px] md:text-[40px] lg:text-[50px]">Elevate Your Property's <br /> Potential – Partner with <br /> Us for Success!</h1>
+          </div>
+
           <form
             // className="absolute bg-white py-4 min-h-[70vh] rounded-lg z-50 right-[12%] sm:min-w-[480px] flex flex-col lg:min-w-[480px] justify-center items-center bottom-4"
-            className="min-h-[400px] py-4  w-[370px] max-h-[800px] lg:min-w-[480px] sm:min-w-[480px] lg:min-h-[500px] absolute z-50 bg-white md:bottom-[5%] md:right-[12%] bottom-6 rounded-lg flex flex-col items-center text-black "
+            className="min-h-[400px] py-4  w-[370px] max-h-[800px] lg:min-w-[480px] sm:min-w-[480px] lg:min-h-[500px] relative z-50 bg-white  rounded-lg flex flex-col items-center text-black "
             action=""
           >
+          {/* <form
+            // className="absolute bg-white py-4 min-h-[70vh] rounded-lg z-50 right-[12%] sm:min-w-[480px] flex flex-col lg:min-w-[480px] justify-center items-center bottom-4"
+            className="min-h-[400px] py-4  w-[370px] max-h-[800px] lg:min-w-[480px] sm:min-w-[480px] lg:min-h-[500px] relative z-50 bg-white md:bottom-[5%] md:right-[12%] bottom-6 rounded-lg flex flex-col items-center text-black "
+            action=""
+          > */}
             <h1 className="text-sm text-center font-primaryRegular font-bold mt-6 mb-4">
               Tell us more about your house
             </h1>
@@ -182,12 +192,13 @@ const ListYourProperty = () => {
               Send a Request
             </button>
           </form>
-          <img className="h-full w-full object-cover" src={slide} alt="" />
+          
+          <img className="h-full w-full absolute z-10 top-0 object-cover" src={slide} alt="" />
         </div>
       </div>
 
-      <WhychooseUs />
       <AboutUS />
+      <WhychooseUs />
       <Testimonials />
       <Footer />
     </>
