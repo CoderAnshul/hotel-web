@@ -26,3 +26,15 @@ button{
 /* input{
     cursor:pointer;
 } */
+
+.custom-select .MuiSelect-select {
+    color: black !important; /* Ensures the text color is black */
+  }
+  
+  .custom-select .MuiMenuItem-root {
+    color: black !important; /* Ensures the dropdown items are black */
+  }
+
+  /* .MuiBackdrop-root MuiBackdrop-invisible MuiModal-backdrop css-g3hgs1-MuiBackdrop-root-MuiModal-backdrop{
+    display: none;
+  } */

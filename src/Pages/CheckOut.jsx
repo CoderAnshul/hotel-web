@@ -97,7 +97,7 @@ const CheckOut = () => {
   return (
     <>
 
-<div role="presentation" onClick={handleClick} className="mt-24 ml-40">
+<div role="presentation" onClick={handleClick} className="mt-24 lg:ml-40 ml-9">
       <Breadcrumbs aria-label="breadcrumb">
         <Link underline="hover" color="inherit" href="/">
           Explore

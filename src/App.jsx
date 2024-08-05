@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
+import 'antd/dist/reset.css';
 import Navbar from "./Components/Navbar";
 import Homepage from "./Pages/Homepage";
 import HomeDes from "./Pages/HomeDes";
