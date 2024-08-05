@@ -163,7 +163,7 @@ const HomeSlider = () => {
                   {formatNumber(adults + children + infants)} Guest{(adults + children + infants) > 1 ? 's' : ''} , {formatNumber(rooms)} Room{rooms > 1 ? 's' : ''}
                 </div>
                 <div
-                  className={`guest transition-transform duration-300 absolute h-[280px] min-w-[290px] bg-white rounded-lg shadow-lg top-[110%] w-[100%] right-0 md:-right-[26%]  overflow-auto ${open ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+                  className={`guest transition-transform duration-300 absolute h-[280px] min-w-[290px] bg-white rounded-lg shadow-lg top-[110%] w-[100%] right-0 md:-right-[26%]  overflow-auto ${open ? 'block translate-y-0' : 'hidden translate-y-5'}`}
                 >
                   <div className="p-4">
                     <div className="flex justify-between text-xs items-center mb-4">
