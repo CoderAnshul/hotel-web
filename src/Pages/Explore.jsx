@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import TuneIcon from "@mui/icons-material/Tune";
 import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
 import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutlined";
@@ -43,7 +43,7 @@ const Explore = () => {
     "Great Upkeep",
   ];
 
-  const [starValue, setStarValue] = useState(4.3);
+  const [starValue, ] = useState(4.3);
   const [showAll, setShowAll] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
   const [selectedOptions, setSelectedOptions] = useState(new Set());
@@ -190,7 +190,7 @@ const Explore = () => {
       newprice: "10,500",
     },
     {
-      id: 5,
+      id: "66c6e844d82090033c2182a6",
       img: [
         "https://images.unsplash.com/photo-1549638441-b787d2e11f14?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "https://plus.unsplash.com/premium_photo-1675616563084-63d1f129623d?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",

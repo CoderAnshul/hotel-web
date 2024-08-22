@@ -1,4 +1,3 @@
-import React from 'react'
 import Testimonials from '../Components/Testimonials'
 import Footer from '../Components/Footer'
 import { Link } from 'react-router-dom'
@@ -55,7 +54,7 @@ const SignIn = () => {
                     </button>
                         </form>
 
-                        <p className='font-primaryRegular text-sm mt-14'>Don't have an acount? <Link to="/sign-up" className='text-[#5D0E41] font-primaryMedium'>Register Now</Link> </p>
+                        <p className='font-primaryRegular text-sm mt-14'>Don&apos;t have an acount? <Link to="/sign-up" className='text-[#5D0E41] font-primaryMedium'>Register Now</Link> </p>
 
                     </div>
                 </div>

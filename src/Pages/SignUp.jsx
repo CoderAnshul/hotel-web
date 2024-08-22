@@ -1,4 +1,3 @@
-import React from 'react'
 import Testimonials from '../Components/Testimonials'
 import Footer from '../Components/Footer'
 import { Link } from 'react-router-dom'
