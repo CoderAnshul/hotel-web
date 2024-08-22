@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import slide from "../assets/Images/slide2.jpg";
 import WhychooseUs from "../Components/WhychooseUs.jsx";
 import AboutUS from "../Components/AboutUS";
@@ -39,7 +39,7 @@ const ListYourProperty = () => {
         <div className="wrapper h-full w-full object-center md:flex-row flex justify-center sm:justify-evenly items-center flex-wrap lg:pt-12">
 
           <div className="text font-fatFace relative z-50 max-w-[600px] mt-[200px] mb-[100px]">
-              <h1 className="text-white text-[30px]  leading-[45px] md:leading-[55px] md:text-[40px] lg:text-[50px]">Elevate Your Property's <br /> Potential – Partner with <br /> Us for Success!</h1>
+              <h1 className="text-white text-[30px]  leading-[45px] md:leading-[55px] md:text-[40px] lg:text-[50px]">Elevate Your Property&apos;s <br /> Potential – Partner with <br /> Us for Success!</h1>
           </div>
 
           <form

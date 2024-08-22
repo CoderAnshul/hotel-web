@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import TuneIcon from "@mui/icons-material/Tune";
 import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
 import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutlined";
@@ -43,7 +43,7 @@ const Explore = () => {
     "Great Upkeep",
   ];
 
-  const [starValue, setStarValue] = useState(4.3);
+  const [starValue, ] = useState(4.3);
   const [showAll, setShowAll] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
   const [selectedOptions, setSelectedOptions] = useState(new Set());

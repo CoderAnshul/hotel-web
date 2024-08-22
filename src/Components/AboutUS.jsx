@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import aboutus from "../assets/Images/aboutUS.png";
 import hotel from "../assets/Images/hotel.png";
 import person from "../assets/Images/person.png";
@@ -48,28 +48,25 @@ const WhychooseUs = () => {
             Welcome to <span className="text-[#5D0E41] text-[38px]">AVENA</span>
           </h1>
           <p className="opacity-[0.8] mb-4 lg:w-[85%]">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo
-            dignissimos necessitatibus officiis corporis blanditiis optio modi
-            natus beatae ipsum fugit vel maxime consequatur quidem voluptas
-            libero, ipsam sit, at recusandae?{" "}
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo dignissimos necessitatibus officiis corporis blanditiis optio modi natus beatae ipsum fugit vel maxime consequatur
+            quidem voluptas libero, ipsam sit, at recusandae?{" "}
           </p>
           <div className="flex md:mt-14  items-center flex-wrap md:justify-start gap-2 sm:gap-6">
-
-          <div className="h-24 w-28 sm:h-40 sm:w-40  flex flex-col items-center justify-center border-double border-[4px] border-black border-opacity-[0.16] rounded-md">
+            <div className="h-24 w-28 sm:h-40 sm:w-40  flex flex-col items-center justify-center border-double border-[4px] border-black border-opacity-[0.16] rounded-md">
               <img src={hotel} alt="" className="scale-[0.6] sm:scale-[0.8] -mb-5 sm:-mb-3 -mt-8 sm:-mt-2 " />
               <h4 className="font-primaryBold sm:text-3xl sm:mt-2">{hotels}+</h4>
               <p className="opacity-[0.8] text-xs font-primaryRegular sm:text-md">Total Customers</p>
-          </div>
-          <div className="h-24 w-28 sm:h-40 sm:w-40  flex flex-col items-center justify-center border-double border-[4px] border-black border-opacity-[0.16] rounded-md">
+            </div>
+            <div className="h-24 w-28 sm:h-40 sm:w-40  flex flex-col items-center justify-center border-double border-[4px] border-black border-opacity-[0.16] rounded-md">
               <img src={map} alt="" className="scale-[0.6] sm:scale-[0.8] -mb-5 sm:-mb-3 -mt-8 sm:-mt-2  " />
               <h4 className="font-primaryBold sm:text-3xl sm:mt-2">{cities}+</h4>
               <p className="opacity-[0.8] text-xs font-primaryRegular md:text-md">Total Customers</p>
-          </div>
-          <div className="h-24 w-28 sm:h-40 sm:w-40  flex flex-col items-center justify-center border-double border-[4px] border-black border-opacity-[0.16] rounded-md">
+            </div>
+            <div className="h-24 w-28 sm:h-40 sm:w-40  flex flex-col items-center justify-center border-double border-[4px] border-black border-opacity-[0.16] rounded-md">
               <img src={person} alt="" className="scale-[0.6] sm:scale-[0.8] -mb-5 sm:-mb-3 -mt-8 sm:-mt-2 " />
               <h4 className="font-primaryBold sm:text-3xl sm:mt-2">{customers}+</h4>
               <p className="opacity-[0.8] text-xs font-primaryRegular md:text-md">Total Customers</p>
-          </div>
+            </div>
 
             {/* <div className="stat-box h-40 w-40 md:h-32 md:w-32 border-black rounded-xl flex justify-center border-opacity-[0.16] items-center flex-col border-double border-[4px]">
               <img src={person} alt="" />
@@ -96,11 +93,7 @@ const WhychooseUs = () => {
         </div>
 
         <div className="right mt-14 flex shrink-0 justify-center md:w-[40%]">
-          <img
-            className="max-h-[400px] object-cover shrink-0 lg:max-h-[700px]"
-            src={aboutus}
-            alt="resort"
-          />
+          <img className="max-h-[400px] object-cover shrink-0 lg:max-h-[700px]" src={aboutus} alt="resort" />
         </div>
       </div>
     </div>

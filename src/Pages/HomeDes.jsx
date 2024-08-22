@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import sofa from "../assets/Images/sofa.png";
 import wifi from "../assets/Images/wifi.png";
@@ -30,7 +30,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { DatePicker, Space } from "antd";
+import { DatePicker,  } from "antd";
 import ReservationForm from "../Components/ReservationForm";
 import CloseIcon from "@mui/icons-material/Close";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -39,22 +39,22 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 const HomeDes = () => {
   const [value, setValue] = useState(4);
-  const [selectedRoom, setSelectedRoom] = useState("");
-  const [dateOpen, setdateOpen] = useState(false);
-  const [age, setAge] = React.useState("");
+  const [ setSelectedRoom] = useState("");
+  // const [dateOpen, setdateOpen] = useState(false);
+  const [age, ] = React.useState("");
   const [isOpen, setIsOpen] = useState(false);
 
   const BookingOpen = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleSelectChange = (event) => {
-    setAge(event.target.value);
-  };
+  // const handleSelectChange = (event) => {
+  //   setAge(event.target.value);
+  // };
 
-  const handleOpen = () => {
-    setdateOpen(!dateOpen);
-  };
+  // const handleOpen = () => {
+  //   setdateOpen(!dateOpen);
+  // };
 
   const handleChange = (event) => {
     setSelectedRoom(event.target.value);
@@ -373,25 +373,25 @@ const HomeDes = () => {
 
   const filteredData = data.filter((item) => item.id == urlId.id);
 
-  const [state, setState] = useState({
-    selection: {
-      startDate: new Date(),
-      endDate: new Date(),
-      key: "selection",
-    },
-  });
+  // const [state, setState] = useState({
+  //   selection: {
+  //     startDate: new Date(),
+  //     endDate: new Date(),
+  //     key: "selection",
+  //   },
+  // });
 
-  const handleSelect = (ranges) => {
-    console.log(ranges);
-    setState({
-      ...state,
-      selection: {
-        startDate: ranges.selection.startDate,
-        endDate: ranges.selection.endDate,
-        key: "selection",
-      },
-    });
-  };
+  // const handleSelect = (ranges) => {
+  //   console.log(ranges);
+  //   setState({
+  //     ...state,
+  //     selection: {
+  //       startDate: ranges.selection.startDate,
+  //       endDate: ranges.selection.endDate,
+  //       key: "selection",
+  //     },
+  //   });
+  // };
 
   function handleClick(event) {
     event.preventDefault();
@@ -602,7 +602,7 @@ const HomeDes = () => {
                     ></iframe>
                   </div>
 
-                  <form className="review-section min-h-[90vh] w-full border-2 border-black border-opacity-10 outline-none p-4 pl rounded-lg p-5 shadow-lg">
+                  <form className="review-section min-h-[90vh] w-full border-2 border-black border-opacity-10 outline-none rounded-lg p-5 shadow-lg">
                     <div className="heading flex items-center text-2xl font-primaryMedium h-16 w-full border-b-2 border-black border-opacity-10 ">
                       Write a Review
                     </div>
