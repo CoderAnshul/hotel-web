@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import Box from "@mui/material/Box";
@@ -15,33 +15,35 @@ import Tick from "../assets/Images/available.png";
 import { FreeMode, Pagination } from "swiper/modules";
 import { Link, useParams } from "react-router-dom";
 import { Breadcrumbs } from "@mui/material";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import { DatePicker, Space } from "antd";
 
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import { DatePicker } from "antd";
-import ReservationForm from "../Components/ReservationForm";
-import CloseIcon from "@mui/icons-material/Close";
+const { RangePicker } = DatePicker;
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { BASE_URL } from "../../utils/utils";
 
 const HomeDes = () => {
   const [value, setValue] = useState(4);
-  const [setSelectedRoom] = useState("");
-  // const [dateOpen, setdateOpen] = useState(false);
-  const [age] = React.useState("");
-  const [isOpen, setIsOpen] = useState(false);
+
   const params = useParams();
   const [data, setData] = useState();
   const [imageArr, setImagesArr] = useState([]);
+  const [guests, setGuests] = useState(1);
+  const [selectedDates, setSelectedDates] = useState([]);
+
+  const handleGuestsChange = (event) => {
+    setGuests(event.target.value);
+  };
+
+  const handleDateChange = (dates) => {
+    setSelectedDates(dates); // Update selectedDates on date change
+  };
 
   useEffect(() => {
     fetch(`${BASE_URL}/api/v1/property/${params.id}`)
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         setData(data.data);
         setImagesArr([
           ...data.data.entrancePicture,
@@ -58,16 +60,9 @@ const HomeDes = () => {
       });
   }, [params.id]);
 
-  const BookingOpen = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const handleChange = (event) => {
-    setSelectedRoom(event.target.value);
-  };
-
   function handleClick(event) {
     event.preventDefault();
+    alert("Please select date");
   }
   console.log(data);
 
@@ -143,10 +138,10 @@ const HomeDes = () => {
                     <h4 className="text-xl font-primaryMedium mb-2 mt-10">Services</h4>
                     <div className="">
                       <ul className="grid grid-cols-3 gap-4">
-                        {data?.services.map((item, index) => (
+                        {data?.service.map((item, index) => (
                           <li key={index} className="min-w-32 flex items-center gap-3 mb-4">
                             <img className="h-10" src={Tick} alt="" />
-                            {item}
+                            {item.name}
                           </li>
                         ))}
                       </ul>
@@ -157,10 +152,10 @@ const HomeDes = () => {
                     <h4 className="text-xl font-primaryMedium mb-2 mt-10">Amenities</h4>
                     <div className="">
                       <ul className="grid grid-cols-3 gap-4">
-                        {data?.amenities.map((item, index) => (
+                        {data?.amenity.map((item, index) => (
                           <li key={index} className="min-w-32 flex items-center gap-3 mb-4">
                             <img className="h-10" src={Tick} alt="" />
-                            {item}
+                            {item.name}
                           </li>
                         ))}
                       </ul>
@@ -281,99 +276,55 @@ const HomeDes = () => {
             </div>
 
             <div className="right hidden lg:flex flex-col items-center mt-6 sticky top-20 max-h-[440px] w-[25%]">
-              <ReservationForm />
-              <button className="py-[18px] px-6 w-[86%] text-sm bg-[#5D0E41] text-white transition-all hover:bg-[#000] mt-4 rounded-md font-primaryMedium">Book Now</button>
-            </div>
+              <div className="lg:flex flex-col items-center text-center min-w-[290px] max-w-[360px] min-h-[200px] px-[27px] max-h-[500px] bg-white border-2 border-opacity-10 border-black rounded-md shadow-xl">
+                <h4 className="font-primaryMedium uppercase text-lg mb-8 mt-2">Your Reservation</h4>
+                <Space direction="vertical" className="w-full flex justify-center items-center space-y-4">
+                  <Space size={8} className=" space-x-2">
+                    <RangePicker placeholder={["Check-in", "Check-out"]} className="w-full h-14 border-[1.5px] border-black border-opacity-25 rounded" onChange={handleDateChange} />
+                  </Space>
+                </Space>
 
-            <div className="phone-checkOut h-16 w-[95%] lg:hidden pt-2 fixed z-50 bottom-0 bg-white shadow-[0px_0px_20px_rgba(0,0,0,0.3)] rounded-lg">
-              <div className="bottom h-1/2 w-full flex items-center justify-center gap-5 pr-2 mt-3">
-                <div>
-                  <button className="p-[10px] px-8 w-full text-sm border-2 border-black border-opacity-35 text-black transition-all hover:bg-[#000] rounded-md font-primaryMedium">Inquiry</button>
-                </div>
-                <div>
-                  <button onClick={BookingOpen} className="p-[11px] px-6 w-full text-sm bg-[#5D0E41] text-white transition-all hover:bg-[#000] rounded-md font-primaryMedium">
-                    Book Now
-                  </button>
-                </div>
+                <div className="w-full mt-5 px-[2px]">
+                  {/* <FormControl sx={{ minWidth: 120, width: "100%", marginBottom: "20px" }}>
+                    <InputLabel id="rooms-select-label">Rooms</InputLabel>
+                    <Select labelId="rooms-select-label" value={rooms} label="Rooms" onChange={handleRoomsChange}>
+                      <MenuItem value="">
+                        <em>None</em>
+                      </MenuItem>
+                      <MenuItem value={1}>1</MenuItem>
+                      <MenuItem value={2}>2</MenuItem>
+                      <MenuItem value={3}>3</MenuItem>
+                      <MenuItem value={4}>4</MenuItem>
+                    </Select>
+                  </FormControl> */}
 
-                <div
-                  style={{ boxShadow: "0px 0px 15px rgba(0, 0, 0, 0.4)" }}
-                  className={`absolute min-h-[200px] w-full left-1/2 translate-x-[-50%] duration-300 transition-all  bg-white z-[60] p-4 ${
-                    isOpen ? "opacity-100 bottom-[-1%]" : " opacity-0 bottom-[-500%]"
-                  }`}
-                >
-                  <div className="top p-2 mt-8 h-1/2 max-h-44 w-full flex items-end ">
-                    <CloseIcon onClick={BookingOpen} className="absolute top-3 right-3" />
-                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                      <Box
-                        display="flex"
-                        justifyContent="space-between"
-                        gap="15px"
-                        width="100%"
-                        // height="44px"
-                      >
-                        <DatePicker
-                          style={{
-                            height: "50px",
-                            width: "100%",
-                            backgroundColor: "transparent",
-                            border: "1.5px solid rgba(0,0,0,0.3",
-                          }}
-                          label="Check in"
-                          name="startDate"
-                        />
-                        <DatePicker
-                          style={{
-                            height: "50px",
-                            width: "100%",
-                            backgroundColor: "transparent",
-                            border: "1.5px solid rgba(0,0,0,0.3",
-                          }}
-                          label="Check out"
-                          name="endDate"
-                        />
-                      </Box>
-                    </LocalizationProvider>
-                  </div>
-                  <div className="flex w-full mt-2 mb-8 xl:px-4">
-                    <FormControl sx={{ m: 1, minWidth: 120, width: "95%" }}>
-                      <InputLabel id="demo-select-small-label">Rooms</InputLabel>
-                      <Select value={age} label="Rooms" onChange={handleChange}>
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>1</MenuItem>
-                        <MenuItem value={20}>2</MenuItem>
-                        <MenuItem value={30}>3</MenuItem>
-                        <MenuItem value={40}>4</MenuItem>
-                      </Select>
-                    </FormControl>
-
-                    <FormControl sx={{ m: 1, minWidth: 120, width: "95%" }}>
-                      <InputLabel id="demo-select-small-label-2">Guests</InputLabel>
-                      <Select value={age} label="Rooms" onChange={handleChange}>
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>1</MenuItem>
-                        <MenuItem value={20}>2</MenuItem>
-                        <MenuItem value={30}>3</MenuItem>
-                        <MenuItem value={40}>4</MenuItem>
-                        <MenuItem value={50}>5</MenuItem>
-                      </Select>
-                    </FormControl>
-                  </div>
-
-                  <div className="h-16 w-full bg-transparent flex justify-between items-center px-2 rounded-md border-2 border-black border-opacity-25">
-                    <span className="text-xl font-primaryMedium">₹150,000</span>
-                    <span className="text-xl font-primaryMedium">
-                      <Link to="/check-out">
-                        <button className="py-[14px] px-10  text-sm bg-[#5D0E41] text-white transition-all hover:bg-[#000] rounded-md font-primaryMedium">Book Now</button>
-                      </Link>
-                    </span>
-                  </div>
+                  <FormControl sx={{ minWidth: 120, width: "100%", marginBottom: "20px" }}>
+                    <InputLabel id="guests-select-label">Guests</InputLabel>
+                    <Select labelId="guests-select-label" value={guests} label="Guests" onChange={handleGuestsChange}>
+                      <MenuItem value={1}>1</MenuItem>
+                      <MenuItem value={2}>2</MenuItem>
+                      <MenuItem value={3}>3</MenuItem>
+                      <MenuItem value={4}>4</MenuItem>
+                      <MenuItem value={5}>5</MenuItem>
+                    </Select>
+                  </FormControl>
                 </div>
               </div>
+              {selectedDates.length !== 2 ? (
+                <div
+                  className="py-[18px] px-6 w-[86%] text-sm bg-[#5D0E41] text-white transition-all hover:bg-[#000] mt-4 rounded-md font-primaryMedium grid place-items-center cursor-pointer"
+                  onClick={handleClick}
+                >
+                  Book Now
+                </div>
+              ) : (
+                <Link
+                  to={`/check-out/${guests}${selectedDates.length > 0 ? `/${selectedDates[0].format("YYYY-MM-DD")}/${selectedDates[1].format("YYYY-MM-DD")}` : ""}/${params.id}`}
+                  className="py-[18px] px-6 w-[86%] text-sm bg-[#5D0E41] text-white transition-all hover:bg-[#000] mt-4 rounded-md font-primaryMedium grid place-items-center"
+                >
+                  Book Now
+                </Link>
+              )}
             </div>
           </div>
         </div>
