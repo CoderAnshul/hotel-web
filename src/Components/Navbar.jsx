@@ -28,9 +28,10 @@ const Navbar = () => {
       backgroundColor: "white",
       color: "#000000",
       boxShadow: "0px 5px 10px rgba(0,0,0,0.2)",
+      position:"fixed",
       scrollTrigger: {
         trigger: ".navbar",
-        start: "top -10%",
+        start: "top 10%",
         end: "top 15%",
         scrub: 1,
       },
@@ -54,6 +55,10 @@ const Navbar = () => {
     location.pathname === "/" || location.pathname === "/listyourproperty"
       ? "navbar bg-transparent shadow-none"
       : "navbar bg-white shadow-lg";
+  const navbarStyle2 =
+    location.pathname === "/"
+      ? "fixed top-[80px] lg:top-[50px]"
+      : "top-0";
 
   
   const getActiveClass = (path) => {
@@ -62,7 +67,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`${navbarStyle} fixed top-0 z-[99] h-[70px] w-full flex items-center justify-between pl-4 pr-4 md:pl-24 xl:pl-44 xl:pr-44`}
+      className={`${navbarStyle} ${navbarStyle2} z-[99] h-[70px] w-full flex items-center justify-between pl-4 pr-4 md:pl-24 xl:pl-44 xl:pr-44`}
     >
       <div className="nav-right">
         <Link to="/">

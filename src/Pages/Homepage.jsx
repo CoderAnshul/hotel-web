@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import HomeSlider from '../Components/HomeSlider';
 import LocationCarousal from '../Components/LocationCarousal';
 import WhychooseUs from '../Components/WhychooseUs';
@@ -335,11 +335,65 @@ const Homepage = () => {
     { id: 145, img: 'https://images.unsplash.com/photo-1549638441-b787d2e11f14?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', location: 'Nagaland', para: 'Starting from ₹2430' },
   ];
 
+  const [isVisible, setIsVisible] = useState(true);
+
+  const closeBanner = () => {
+    setIsVisible(false);
+  };
+
+  if (!isVisible) return null;
+
+  const top =
+  location.pathname === "/"
+    ? "mt-[80px] "
+    : "top-0";
+
 
 
   return (
     
-    <div >
+    <div className={`${top}`}>
+   <div className={`fixed h-[80px] lg:h-[50px]  z-[500] top-0 left-0 w-full bg-gradient-to-r from-blue-300 to-orange-300 p-4 shadow-lg flex justify-center items-center mb-10`}>
+      <span className="text-black font-semibold text-center">
+        Limited Time Offer! Book 2 Nights and Get the 2nd Night at 50% Off! Don't Miss Out - Use code: <b>AVENA50</b>
+      </span>
+      <div className="flex items-center">
+        <button
+          className="ml-2 text-gray-600 hover:text-black"
+          onClick={() => {
+            navigator.clipboard.writeText("VISTA50");
+          }}
+        >
+          {/* Clipboard Icon */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            
+          </svg>
+        </button>
+        {/* <button className="ml-4 text-gray-600 hover:text-black" onClick={closeBanner}>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button> */}
+      </div>
+    </div>
       <HomeSlider />
       <LocationCarousal data={data} marginTop={"mt-56"} boxTitle={"TRENDING THIS SEASON"} />
       <AboutUS/>

@@ -9,6 +9,15 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import slide2 from "../assets/Images/steps.jpg"
+import dashboard from "../assets/Images/dashboard.png"
+import rent from "../assets/Images/rent.png"
+import tracker from "../assets/Images/tracker.png"
+import rate from "../assets/Images/Rate.png"
+import emailNot from "../assets/Images/emailNot.png"
+import user from "../assets/Images/user.png"
+import dashImg from "../assets/Images/dashboardImg.png"
+import listPhoto from "../assets/Images/listPhoto.jpg"
 
 const ListYourProperty = () => {
   const [propertyLocation, setPropertyLocation] = useState("");
@@ -34,6 +43,79 @@ const ListYourProperty = () => {
 
   return (
     <>
+
+
+    <div className="min-h-[600px] w-full flex items-center justify-center flex-col relative z-[22] overflow-hidden">
+    <h2 className="text-[32px] md:text-[40px] lg:text-[48px] font-semibold md:w-[90%] lg:w-[80%] xl:w-[90%] max-w-[1000px] text-center leading-10 relative z-[22] text-white">
+  List your property for free with 
+  <span className="text-[#5D0E41] ml-2 mr-2 text-[44px] font-bold relative" style={{ textShadow: '2px 2px 0 #fff, -2px -2px 0 #FFF , 2px -2px 0 #fff, -2px 2px 0 #fff' }}>
+     AVENA
+  </span>
+  and maximize online bookings.
+</h2>
+
+      <h4 className="mt-6 md:text-[22px] font-semibold relative z-[22] text-white text-center">Hotel, Villa, Resort, Lodge, Guest house</h4>
+      <div className="overlay z-[2] absolute h-full w-full bg-[#00000054]"></div>
+      <img className="absolute z-[1] h-full w-full object-cover" src={listPhoto} alt="" />
+    </div>
+
+    <div className="steps h-[300px] md:min-h-[500px] max-h-[600px] w-full bg-white flex items-center justify-center mb-4">
+      <img className="h-full w-full object-contain scale-[1] md:scale-[0.7] lg:scale-[0.8]" src={slide2} alt="steps image" />
+    </div>
+
+
+    <div className="min-h-[500px] bg-[#f1f1f1] w-full flex flex-col items-center mb-8 p-[2vw]">
+      <h2 className="text-[35px] font-primaryBold uppercase text-center">why choose <span className="text-[#5D0E41] text-[42px] ">Avena?</span></h2>
+      <div className="w-[90%] flex flex-col items-center md:flex-row md:justify-center md:items-start flex-wrap  min-h-[400px] mt-3 p-2">
+
+        <div className="features min-w-[300px] w-full md:max-w-[310px]  h-[200px]  mb-2 flex flex-col justify-center items-center relaive">
+            <img className="h-[50px] w-full object-contain mb-4 opacity-75" src={dashboard} alt="" />
+            <h4 className="text-[20px] font-primaryBold opacity-85">DASHBOARD</h4>
+            <p className="text-center w-[80%] ">A comprehensive interface for managing multiple items</p>
+        </div>
+        <div className="features min-w-[300px] w-full md:max-w-[310px]  h-[200px]  mb-2 flex flex-col justify-center items-center relaive">
+            <img className="h-[50px] w-full object-contain mb-4 opacity-75" src={rate} alt="" />
+            <h4 className="text-[20px] font-primaryBold opacity-85">COMPETITIVE RATE</h4>
+            <p className="text-center w-[80%] ">Set your prices to be ahead of your competition</p>
+        </div>
+        <div className="features min-w-[300px] w-full md:max-w-[310px]  h-[200px]  mb-2 flex flex-col justify-center items-center relaive">
+            <img className="h-[50px] w-full object-contain mb-4 opacity-75" src={tracker} alt="" />
+            <h4 className="text-[20px] font-primaryBold opacity-85">AVAILABILITY TRACKER</h4>
+            <p className="text-center w-[80%] ">Monitor real-time inventory status with our comprehensive availability tracker tool.</p>
+        </div>
+        <div className="features min-w-[300px] w-full md:max-w-[310px]  h-[200px]  mb-2 flex flex-col justify-center items-center relaive">
+            <img className="h-[50px] w-full object-contain mb-4 opacity-75" src={rent} alt="" />
+            <h4 className="text-[20px] font-primaryBold opacity-85">MONTHLY RENT</h4>
+            <p className="text-center w-[80%] ">Get a set amount of monthly income </p>
+        </div>
+        <div className="features min-w-[300px] w-full md:max-w-[310px]  h-[200px]  mb-2 flex flex-col justify-center items-center relaive">
+            <img className="h-[50px] w-full object-contain mb-4 opacity-75" src={emailNot} alt="" />
+            <h4 className="text-[20px] font-primaryBold opacity-85">EMAIL NOTIFICATION</h4>
+            <p className="text-center w-[80%] ">Receive email notifications for all bookings, transactions, and important events.</p>
+        </div>
+        <div className="features min-w-[300px] w-full md:max-w-[310px]  h-[200px]  mb-2 flex flex-col justify-center items-center relaive">
+            <img className="h-[50px] w-full object-contain mb-4 opacity-75" src={user} alt="" />
+            <h4 className="text-[20px] font-primaryBold opacity-85">USER ACTIVITY</h4>
+            <p className="text-center w-[80%] ">View all your customer’s activities, including bookings, reviews, and ratings.</p>
+        </div>
+      </div>
+    </div>
+
+    <div className="min-h-[300px] w-full p-10 flex flex-col md:flex-row justify-center items-center">
+  <img 
+    className="h-auto w-full md:w-1/2 object-contain scale-100 md:scale-[0.9] lg:scale-[0.8]" 
+    src={dashImg} 
+    alt="steps image" 
+  />
+  
+  <h2 className="text-[22px] md:text-[26px] lg:text-[32px] font-semibold text-center md:text-left md:w-[90%] lg:w-[80%] xl:w-[60%] max-w-[800px] leading-6 md:leading-10 text-black mt-8 md:mt-0 md:ml-10">
+    From desktop to mobile phones to tablets, update inventory, rates, last-minute offers anytime, anywhere.
+  </h2>
+</div>
+
+
+
+
       <div className="min-h-[820px]  md:h-[700px] pb-14 md:pb-0 lg:min-h-[720px]  lg:max-h-[600px] w-full relative overflow-hidden">
         <div className="darkoverlay absolute h-full w-full bg-[#00000069] z-20"></div>
         <div className="wrapper h-full w-full object-center md:flex-row flex justify-center sm:justify-evenly items-center flex-wrap lg:pt-12">
@@ -197,8 +279,7 @@ const ListYourProperty = () => {
         </div>
       </div>
 
-      <AboutUS />
-      <WhychooseUs />
+      
       <Testimonials />
       <Footer />
     </>
